@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>亓勤凤 - 电商设计师简历</title>
+<style>
+:root{--primary-color:linear-gradient(135deg,#8e6c88 0%,#d4b8c7 80%);--secondary-color:#4285f4;--text-color:#333;--light-text:#666;--background-color:#fff;--light-bg:#f8f9fa;--border-color:#eaeaea;--accent-color:#ffde7c}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;line-height:1.6;color:var(--text-color);background-color:var(--background-color);padding:0;margin:0}
+nav{position:fixed;top:0;left:0;width:100%;background:var(--primary-color);z-index:1000}
+nav ul{list-style:none;margin:0;padding:0;display:flex;justify-content:center}
+nav ul li{padding:0 15px}
+nav a{color:white;text-decoration:none;font-size:16px;transition:color .3s;line-height:50px}
+nav a:hover{color:var(--accent-color)}
+nav a.active{color:var(--accent-color);font-weight:bold}
+div.project a{text-decoration:none;color:inherit}
+.resume-container{max-width:1000px;margin:80px auto;padding:20px;display:flex;flex-direction:column;background-color:var(--background-color);box-shadow:0 0 15px rgba(0,0,0,.05)}
+@media (min-width:768px){.resume-container{flex-direction:row;box-shadow:0 0 25px rgba(0,0,0,.1)}}
+.sidebar{flex:0 0 300px;background:var(--primary-color);color:white;padding:30px;margin-bottom:20px;position:sticky;top:70px;max-height:calc(100vh - 70px);overflow-y:auto;align-self:flex-start}
+@media (min-width:768px){.sidebar{margin-bottom:0;margin-right:20px}}
+.main-content{flex:1;padding:30px}
+figure{padding:10% 15% 10% 15%}
+figure img{border-radius:10px;overflow:hidden}
+h1{font-size:2.5rem;margin-bottom:10px;font-weight:700}
+h2{font-size:1.5rem;margin:25px 0 15px;padding-bottom:10px;border-bottom:2px solid #d4b8c7;color:#8e6c88}
+h3{font-size:1.2rem;margin:15px 0 10px;color:white}
+p{margin-bottom:15px}
+.info-item{display:flex;margin-bottom:10px;align-items:center}
+.info-item i{width:25px;text-align:center;margin-right:10px}
+.tag{display:inline-block;color:#8e6c88;padding:4px 10px;border:1px solid #8e6c88;border-radius:15px;font-size:.85rem;margin-right:8px;margin-bottom:8px;cursor:pointer}
+.experience{margin-bottom:25px;padding:15px;background-color:#faf7f9;border-radius:8px;transition:all .3s ease;border-bottom:1px solid var(--border-color)}
+.experience:hover{background-color:#f8f2f5;transform:translateY(-3px)}
+.experience:last-child{border-bottom:none}
+.company{font-weight:600;margin-bottom:5px}
+.position-date{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
+.position{font-weight:600;color:#8e6c88}
+.date{color:var(--light-text);font-size:.9rem}
+.achievements{list-style-type:none;margin-left:20px;margin-top:10px}
+.achievements li{position:relative;padding-left:25px;margin-bottom:8px}
+.achievements li:before{content:"•";color:var(--accent-color);position:absolute;left:0;font-weight:bold}
+.skills-list{display:flex;flex-wrap:wrap;gap:10px;margin-top:10px;background-color:#faf7f9;padding:15px 15px 7px 15px;border-radius:8px;transition:all .3s ease}
+.skills-list:hover{background-color:#f8f2f5;transform:translateY(-3px)}
+.project{margin-bottom:15px;padding:15px 15px 5px;background-color:#faf7f9;border-radius:8px;transition:all .3s ease}
+.project:hover{background-color:#f8f2f5;transform:translateY(-3px)}
+.project h3{color:#8e6c88;margin:0 0 10px 0}
+.education{display:flex;margin-bottom:15px}
+.edu-year{flex:0 0 120px;color:var(--light-text);font-size:.9rem;text-align:center}
+.edu-info{flex:1}
+.download-btn{display:inline-block;background:var(--primary-color);color:white;padding:10px 20px;border-radius:5px;text-decoration:none;margin-top:20px;transition:background .3s ease}
+.download-btn:hover{background-color:#0d62d0}
+.highlight{color:var(--accent-color);font-weight:600}
+.divider{height:1px;background-color:var(--border-color);margin:20px 0}
+.portfolio-link{color:#8e6c88;text-decoration:underline}
+.portfolio-link:hover{color:#8e6c88}
+.job-title{margin-bottom:20px;font-size:1.1rem}
+.job-intention{margin-top:30px}
+.job-position{font-size:1.2rem;font-weight:600;color:white}
+.salary-expectation{margin-top:10px;background-color:rgba(255,255,255,.2);padding:8px 15px;border-radius:5px}
+.salary-amount{font-weight:bold;color:var(--accent-color)}
+.core-advantages{margin-top:30px}
+.advantage{background-color:#faf7f9;padding:20px 20px 10px 20px;border-radius:10px;transition:all .3s ease}
+.advantage:hover{background-color:#f8f2f5;transform:translateY(-3px)}
+.advantages-list{list-style-type:none;margin-left:0}
+.advantage-item{margin-bottom:8px;padding-left:20px;position:relative}
+.core-list{list-style-type:none;margin-left:0}
+.core-item{margin-bottom:8px;padding-left:20px;position:relative}
+.bullet{position:absolute;left:0;color:var(--accent-color)}
+.education-section{background-color:#faf7f9;padding:20px;border-radius:10px;transition:all .3s ease}
+.education-section:hover{background-color:#f8f2f5;transform:translateY(-3px)}
+.edu-info{display:flex;align-items:flex-start;gap:20px}
+.school-logo{background-color:white;padding:8px;border-radius:8px;box-shadow:0 2px 4px rgba(0,0,0,.1);flex-shrink:0}
+.logo-img{width:50px;height:50px;border-radius:5px;display:block}
+.edu-content{flex:1}
+.edu-header{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:8px}
+.school-name{margin:0;color:#8e6c88;font-size:1.3rem}
+.edu-year{color:var(--light-text);font-size:.9rem;background-color:white;padding:4px 8px;border-radius:12px;font-weight:500}
+.major{margin:0 0 12px 0;color:#8e6c88;font-weight:600;font-size:1.1rem}
+.description{margin:0;color:var(--text-color);line-height:1.6}
+.tech-skills-container{display:flex;flex-wrap:wrap;gap:20px}
+.skill-category{flex:1;min-width:300px;background-color:#faf7f9;padding:20px;border-radius:10px;transition:all .3s ease}
+.skill-category:hover{background-color:#f8f2f5;transform:translateY(-3px)}
+.skill-category h3{color:#8e6c88;margin:0 0 15px 0;font-size:1.2rem;border-bottom:1px solid var(--border-color);padding-bottom:8px}
+.skill-category .achievements{margin-left:0}
+.skill-category .achievements li{margin-bottom:12px;line-height:1.6}
+.skill-category .achievements li strong{color:#8e6c88}
+.action-buttons{margin-top:30px;text-align:center}
+.btn-secondary{margin-left:15px}
+@media (max-width:768px){.edu-info{flex-direction:column;gap:15px}.edu-header{flex-direction:column;align-items:flex-start;gap:8px}.school-name{font-size:1.2rem}.action-buttons{display:flex;flex-direction:column;gap:10px;align-items:center}.btn-secondary{margin-left:0}.job-position{font-size:1.1rem}.salary-expectation{text-align:center}.tech-skills-container{flex-direction:column;gap:15px}.skill-category{min-width:auto}}
+@media (max-width:480px){.education-section{padding:15px}.logo-img{width:40px;height:40px}.school-name{font-size:1.1rem}.major{font-size:1rem}}
+</style>
+</head>
+<body>
+<header id="header-placeholder">
+<nav>
+    <ul>
+        <li><a href="#" class="active">在线简历</a></li>
+        <li><a href="#">简历下载</a></li>
+        <li><a href="index.html" target="_blank">个人作品集网站</a></li>
+    </ul>
+</nav>
+</header>
+
+<div class="resume-container">
+<aside class="sidebar">
+    <figure>
+        <img src="img/qi_avatar2.jpg" width="100%" alt="亓勤凤">
+    </figure>
+    <h1>亓勤凤</h1>
+    <p class="job-title">电商设计师</p>
+    
+    <div class="info-item">
+        <i>📞</i>
+        <span>15662641891</span>
+    </div>
+    <div class="info-item">
+        <i>💬</i>
+        <span>15662641891 (微信)</span>
+    </div>
+    <div class="info-item">
+        <i>📧</i>
+        <span>1323716022@qq.com</span>
+    </div>
+    <div class="info-item">
+        <i>📅</i>
+        <span>27岁 | 5年工作经验</span>
+    </div>
+    <div class="info-item">
+        <i>📍</i>
+        <span>期望城市：上海</span>
+    </div>
+    
+    <div class="job-intention">
+        <h3>求职意向</h3>
+        <p class="job-position">电商设计师</p>
+        <p class="salary-expectation">
+            期望薪资：<span class="salary-amount">8-10K</span>
+        </p>
+    </div>
+    
+    <div class="cores">
+        <h3>核心优势</h3>
+        <div class="core">
+            <ul class="core-list">
+                <li class="core-item">
+                    <span class="bullet">•</span>
+                    5年平面设计经验，擅长品牌视觉设计与数字化创意
+                </li>
+                <li class="core-item">
+                    <span class="bullet">•</span>
+                    精通Adobe设计软件，具备全链路设计能力
+                </li>
+                <li class="core-item">
+                    <span class="bullet">•</span>
+                    工作中以高效执行见长，能快速适应多任务并行环境
+                </li>
+                <li class="core-item">
+                    <span class="bullet">•</span>
+                    持续关注行业设计动态，探索不同视觉表达形式
+                </li>
+                <li class="core-item">
+                    <span class="bullet">•</span>
+                    愿以专业能力为品牌创造长期价值
+                </li>
+            </ul>
+        </div>
+    </div>
+</aside>
+
+<main class="main-content">
+    <h2>个人优势</h2>
+    <div class="advantage">
+        <p>5年专业电商设计经验，深度理解电商平台运营逻辑和用户购买心理，擅长通过视觉设计提升商品转化率和品牌价值。精通全链路电商设计流程，从产品拍摄、图片处理到店铺装修、营销物料制作，具备完整的电商视觉解决方案能力。</p>
+        <p>曾服务过多个知名电商品牌，参与的项目累计GMV超过5000万，设计的主图和详情页平均点击率提升40%，转化率提升30%以上。熟悉天猫、京东、拼多多等主流电商平台的设计规范和营销节点。</p>
+        <p>具备敏锐的市场洞察力和数据分析能力，能够根据用户反馈和销售数据快速调整设计策略。擅长A/B测试优化设计方案，持续关注电商行业趋势和新兴营销玩法。</p>
+        <p>致力于用专业的视觉设计为品牌创造更大的商业价值。</p>
+    </div>
+    <h2>专业技能</h2>
+    <div class="skills-list">
+        <span class="tag">电商设计</span>
+        <span class="tag">主图设计</span>
+        <span class="tag">详情页制作</span>
+        <span class="tag">店铺装修</span>
+        <span class="tag">产品拍摄</span>
+        <span class="tag">数据分析</span>
+        <span class="tag">转化优化</span>
+        <span class="tag">营销设计</span>
+        <span class="tag">用户体验</span>
+        <span class="tag">A/B测试</span>
+        <span class="tag">平台规则</span>
+        <span class="tag">视频制作</span>
+    </div>
+    
+    <h2>工作经历</h2>
+    
+    <div class="experience">
+        <div class="position-date">
+            <div class="position">平面设计师</div>
+            <div class="date">2024.05-2025.06</div>
+        </div>
+        <div class="company">上海爱人如己健康管理</div>
+        <ul class="achievements">
+            <li>根据编写的文案制作公司视频，以及后期合成剪辑制作配音，根据需要制作简易视频动画</li>
+            <li>平面宣传物料的设计，包含各种图片动图，节日节气等营销素材</li>
+            <li>企业logo设计，文化墙等相关的延展设计，建立完整品牌视觉体系</li>
+            <li>企业画册每月的设计更新，保持品牌形象的时效性和一致性</li>
+            <li>线上商城的搭建和维护，产品详情页设计，主图设计，宣传图设计</li>
+            <li>产品说明书的设计印刷，从设计到生产全流程把控</li>
+        </ul>
+    </div>
+    
+    <div class="experience">
+        <div class="position-date">
+            <div class="position">平面设计师</div>
+            <div class="date">2023.03-2024.05</div>
+        </div>
+        <div class="company">上海艺录服饰</div>
+        <ul class="achievements">
+            <li>负责线下店铺海报宣传册和挂图等设计排版</li>
+            <li>负责新产品的图片拍摄和视频拍摄，同时修图和剪辑并配相关文案</li>
+            <li>主图、详情页、首页和相关推广图片的设计制作与图像处理</li>
+        </ul>
+    </div>
+    
+    <div class="experience">
+        <div class="position-date">
+            <div class="position">视觉设计师</div>
+            <div class="date">2020.07-2022.10</div>
+        </div>
+        <div class="company">空白(上海)电子商务有限公司</div>
+        <ul class="achievements">
+            <li>参与多场与品牌方展览活动和画廊的展出活动并独自负责所有设计工作与前期的商场园区沟通工作</li>
+            <li>完成店铺首页的装修和风格设定，商品详情页的设计和优化，基本图片尺寸色调的调整跟产品的修图</li>
+            <li>负责公司所有门店日常宣传、策划设计制作、公司展览会议布置；企业宣传资料的设计、制作与创新</li>
+            <li>能完成vi整体设计，结合vi系统进行品牌包装系列化的创意</li>
+            <li>会使用视频剪辑软件，用ae软件制作gif动图，动态海报、动态邀请函等</li>
+        </ul>
+    </div>
+    
+    <h2>项目经历</h2>
+    <div class="project">
+        <h3>作品集展示</h3>
+        <p>持续更新个人设计作品集，展示多年来的设计成果和创意思路。</p>
+        <p><strong>作品链接：</strong><a href="https://www.zcool.com.cn/u/15820455" target="_blank" class="portfolio-link">https://www.zcool.com.cn/u/15820455</a></p>
+        <p><strong>时间：</strong>2022.01-至今</p>
+    </div>
+    
+    <h2>教育背景</h2>
+    <div class="education-section">
+        <div class="edu-info">
+            <div class="school-logo">
+                <img src="img/school.png" alt="山东农业工程学院" class="logo-img">
+            </div>
+            <div class="edu-content">
+                <div class="edu-header">
+                    <h3 class="school-name">山东农业工程学院</h3>
+                    <span class="edu-year">2017-2020</span>
+                </div>
+                <p class="major">视觉传达 | 大专</p>
+                <p class="description">主修课程：平面设计、品牌设计、包装设计、字体设计、色彩学等。在校期间积极参与设计实践项目，具备扎实的设计基础和创意思维能力。</p>
+            </div>
+        </div>
+    </div>
+    
+    <h2>技术能力详情</h2>
+    <div class="tech-skills-container">
+
+        <div class="skill-category">
+            <h3>设计能力</h3>
+            <ul class="achievements">
+                <li><strong>Adobe系列：</strong>精通Photoshop、Illustrator、InDesign专业设计软件</li>
+                <li><strong>手绘能力：</strong>具备扎实的手绘基础和创意表达能力</li>
+                <li><strong>动画制作：</strong>使用After Effects制作动画和动态图形</li>
+                <li><strong>视频剪辑：</strong>使用Premiere Pro和剪映进行视频剪辑制作</li>
+                <li><strong>原型设计：</strong>使用墨刀进行产品原型和交互设计</li>
+                <li><strong>3D设计：</strong>使用Spline轻量化3D软件创建立体视觉效果</li>
+                <li><strong>AI制图：</strong>使用即梦可灵AI工具进行智能化设计创作</li>
+            </ul>
+        </div>
+        
+        <div class="skill-category">
+            <h3>电商运营与优化</h3>
+            <ul class="achievements">
+                <li><strong>平台规则：</strong>深度了解天猫、京东、拼多多等平台设计规范和政策</li>
+                <li><strong>数据驱动：</strong>基于点击率、转化率等数据指标优化设计方案</li>
+                <li><strong>用户体验：</strong>具备用户行为分析能力，注重购买路径的视觉优化</li>
+                <li><strong>趋势把握：</strong>紧跟电商设计趋势，快速适应新的营销玩法和视觉风格</li>
+            </ul>
+        </div>
+    </div>
+    
+    <div class="action-buttons">
+        <a href="https://www.zcool.com.cn/u/ecommerce-design" class="download-btn" target="_blank">
+            查看作品集
+        </a>
+        <a href="#" class="download-btn btn-secondary" target="_blank">
+            下载简历PDF
+        </a>
+    </div>
+</main>
+</div>
+
+<script>
+// 简单的交互效果
+document.addEventListener('DOMContentLoaded', function() {
+    // 为技能标签添加点击效果
+    const tags = document.querySelectorAll('.tag');
+    tags.forEach(tag => {
+        tag.addEventListener('click', function() {
+            this.style.transform = 'scale(0.95)';
+            setTimeout(() => {
+                this.style.transform = 'scale(1)';
+            }, 150);
+        });
+    });
+    
+
+    
+    // 平滑滚动效果
+    const navLinks = document.querySelectorAll('nav a');
+    navLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            const href = this.getAttribute('href');
+            if (href.startsWith('#')) {
+                e.preventDefault();
+                const target = document.querySelector(href);
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            }
+        });
+    });
+});
+</script>
+</body>
+</html>

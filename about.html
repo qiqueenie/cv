@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>关于我 - Queenie Design</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,Cantarell,'Open Sans','Helvetica Neue',sans-serif;line-height:1.6;color:#333;background-color:#f9f7f8}
+a{text-decoration:none;color:inherit}
+img{max-width:100%;height:auto}
+.main-content{margin-top:70px}
+.header{position:fixed;top:0;left:0;width:100%;z-index:100;height:70px;background:rgba(255,255,255,.98);backdrop-filter:blur(10px);box-shadow:0 2px 15px rgba(0,0,0,.05);transition:all .3s ease}
+.header-container{display:flex;justify-content:space-between;align-items:center;height:100%;padding:0 2rem;max-width:1400px;margin:0 auto}
+.logo{cursor:pointer}
+.logo h1{font-size:1.8rem;font-weight:500;color:#8e6c88;margin:0;letter-spacing:1px;transition:all .3s ease}
+.logo h1 span{color:#d4b8c7;font-weight:300}
+.nav-desktop{margin:0 2rem}
+.nav-desktop ul{display:flex;list-style:none;margin:0;padding:0;gap:3rem}
+.nav-desktop ul li a{color:#8e6c88;text-decoration:none;font-size:1rem;font-weight:400;transition:all .3s ease;position:relative;padding:.5rem 0;letter-spacing:.5px}
+
+.nav-desktop ul li a:hover,.nav-desktop ul li a.active{color:#a58faa}
+.nav-desktop ul li a::after{content:'';position:absolute;bottom:-2px;left:0;width:100%;height:2px;background-color:#d4b8c7;transform:scaleX(0);transition:transform .3s ease;transform-origin:right}
+.nav-desktop ul li a:hover::after,.nav-desktop ul li a.active::after{transform:scaleX(1);transform-origin:left}
+.desktop-only{display:block}
+.nav-toggle{display:none;cursor:pointer;font-size:1.5rem;color:#8e6c88}
+@media (max-width:768px){.header-container{background-color:white;padding:0 1rem;position:relative;z-index:100}.logo h1{font-size:1.5rem}.nav-desktop{display:none}.nav-toggle{display:block}}
+.mobile-menu{display:none;position:fixed;z-index:99;top:0;left:0;width:100%;height:100vh;background:#3333}
+.mobile-menu nav{padding-top:70px;background-color:#fffe}
+.mobile-menu ul{list-style:none;padding:6px 0}
+.mobile-menu li{padding:6px 0}
+.mobile-menu li:hover{background-color:#fff}
+.mobile-menu a{display:block;padding:10px;color:#333;font-size:1.1rem;text-align:center;border-radius:5px}
+.mobile-menu a:active{background:#f0f0f0}
+
+.footer{background:linear-gradient(135deg,#8e6c88 0%,#6a4d6b 100%);color:white;padding:5rem 0 2rem;position:relative;overflow:hidden}
+.footer::before{content:'';position:absolute;top:0;left:0;width:100%;height:100%;background-image:url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgdmlld0JveD0iMCAwIDYwIDYwIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmZmZmYiIGZpbGwtb3BhY2l0eT0iMC4xIj48cGF0aCBkPSJNMzYgMzRjMC0yLjIgMS44LTQgNC00czQgMS44IDQgNC0xLjggNC00IDQtNC0xLjgtNC00ek0xNiAxNGMwLTIuMiAxLjgtNCA0LTRzNCAxLjggNCA0LTEuOCA0LTQgNC00LTEuOC00LTR6Ii8+PC9nPjwvZz48L3N2Zz4=');opacity:.05;pointer-events:none}
+.footer-container{max-width:1200px;margin:0 auto;padding:0 2rem;position:relative;z-index:1}
+.footer-top{display:grid;grid-template-columns:1fr 2fr;gap:3rem;margin-bottom:3rem}
+.footer-logo h2{font-size:2rem;margin:0 0 1.5rem;font-weight:500;letter-spacing:1px}
+.footer-logo h2 span{color:#d4b8c7;font-weight:300}
+.footer-logo p{font-size:1.1rem;line-height:1.8;opacity:.9;margin:0}
+.footer-links{display:grid;grid-template-columns:repeat(2,1fr);gap:2rem}
+.footer-links h3{font-size:1.2rem;margin:0 0 1.5rem;font-weight:500;color:#d4b8c7;letter-spacing:.5px}
+.footer-links ul{list-style:none;padding:0;margin:0}
+.footer-links ul li{margin-bottom:1rem}
+.footer-links ul li a{color:rgba(255,255,255,.85);text-decoration:none;transition:all .3s ease;font-size:1rem;display:inline-block}
+.footer-links ul li a:hover{color:white;transform:translateX(5px)}
+.social-icons{display:flex;gap:1.5rem;margin-top:1rem}
+.social-icons a{display:flex;align-items:center;justify-content:center;width:45px;height:45px;border-radius:50%;background:rgba(255,255,255,.1);color:white;transition:all .3s ease;font-size:1.2rem}
+.social-icons a:hover{background:rgba(255,255,255,.2);transform:translateY(-3px)}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.15);padding-top:2rem;text-align:center}
+.footer-bottom p{margin:0;font-size:.9rem;opacity:.7}
+.social-icons img{padding:14px}
+figure{width:200px;background-color:#fff;border-radius:10px;overflow:hidden;opacity:0;transition:all .3s ease-in-out;margin-top:10px}
+
+@media (max-width:992px){.footer-top{grid-template-columns:1fr;gap:2rem}}
+@media (max-width:768px){.footer{padding:3rem 0 2rem}.footer-container{padding:0 1rem}.footer-links{grid-template-columns:1fr}}
+:root{--primary-color:#8e6c88;--secondary-color:#d4b8c7;--accent-color:#a58faa;--text-color:#333;--light-bg:#f9f7f8;--white:#ffffff;--shadow:0 5px 15px rgba(0,0,0,.05);--shadow-hover:0 10px 25px rgba(0,0,0,.1);--border-radius:8px;--transition:all .3s ease}
+.about{padding-top:70px;min-height:100vh;background:var(--light-bg)}
+.about-header{background:linear-gradient(135deg,var(--primary-color) 0%,var(--secondary-color) 100%);color:var(--white);padding:4rem 0;text-align:center;position:relative;overflow:hidden}
+.about-header::before{content:'';position:absolute;top:0;left:0;width:100%;height:100%;background-image:url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgdmlld0JveD0iMCAwIDYwIDYwIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmZmZmYiIGZpbGwtb3BhY2l0eT0iMC4xIj48cGF0aCBkPSJNMzYgMzRjMC0yLjIgMS44LTQgNC00czQgMS44IDQgNC0xLjggNC00IDQtNC0xLjgtNC00ek0xNiAxNGMwLTIuMiAxLjgtNCA0LTRzNCAxLjggNCA0LTEuOCA0LTQgNC00LTEuOC00LTR6Ii8+PC9nPjwvZz48L3N2Zz4=');opacity:.1}
+.profile-container{max-width:800px;margin:0 auto;padding:0 2rem;position:relative;z-index:1}
+.avatar{width:150px;height:150px;margin:0 auto 2rem;border-radius:50%;overflow:hidden;border:4px solid rgba(255,255,255,.2);box-shadow:0 10px 30px rgba(0,0,0,.2);transition:var(--transition)}
+.avatar:hover{transform:scale(1.05);box-shadow:0 15px 40px rgba(0,0,0,.3)}
+.avatar img{width:100%;height:100%;object-fit:cover}
+.about-header h1{font-size:3rem;margin-bottom:1rem;font-weight:300;letter-spacing:2px}
+.subtitle{font-size:1.3rem;opacity:.9;font-weight:300;letter-spacing:1px}
+
+.content-container{max-width:1200px;margin:0 auto;padding:4rem 2rem}
+.row{display:grid;grid-template-columns:2fr 1fr;gap:3rem;align-items:start}
+.section-card{background:var(--white);padding:2.5rem;border-radius:var(--border-radius);box-shadow:var(--shadow);margin-bottom:2rem;transition:var(--transition);opacity:0;transform:translateY(20px)}
+.section-card.animate-in{opacity:1;transform:translateY(0)}
+.section-card:hover{box-shadow:var(--shadow-hover);transform:translateY(-2px)}
+.section-card h2{color:var(--primary-color);font-size:1.8rem;margin-bottom:1.5rem;font-weight:400;position:relative;padding-bottom:.5rem}
+.section-card h2::after{content:'';position:absolute;bottom:0;left:0;width:50px;height:3px;background:linear-gradient(90deg,var(--primary-color),var(--secondary-color));border-radius:2px}
+.section-card p{color:var(--text-color);line-height:1.8;margin-bottom:1rem;font-size:1rem}
+.section-card p:last-child{margin-bottom:0}
+.timeline{position:relative;padding-left:2rem}
+.timeline::before{content:'';position:absolute;left:8px;top:0;bottom:0;width:2px;background:linear-gradient(to bottom,var(--primary-color),var(--secondary-color))}
+.timeline-item{position:relative;margin-bottom:3rem}
+.timeline-item:last-child{margin-bottom:0}
+.timeline-node{position:absolute;left:-25px;top:0;width:16px;height:16px;background:var(--primary-color);border-radius:50%;border:3px solid var(--white);box-shadow:0 0 0 3px var(--secondary-color);z-index:1}
+.timeline-content{position:relative}
+.timeline-content .card{background:var(--white);padding:2rem;border-radius:var(--border-radius);box-shadow:var(--shadow);transition:var(--transition)}
+.timeline-content .card:hover{box-shadow:var(--shadow-hover);transform:translateX(5px)}
+.timeline-content .card h3{color:var(--primary-color);font-size:1.3rem;margin-bottom:.5rem;font-weight:500}
+.timeline-content .card h4{color:var(--accent-color);font-size:1.1rem;margin-bottom:1rem;font-weight:400}
+
+.timeline-content .card p{color:var(--text-color);line-height:1.7;margin-bottom:1.5rem}
+.timeline-timestamp{position:absolute;right:0;top:0;background:var(--primary-color);color:var(--white);padding:.5rem 1rem;border-radius:20px;font-size:.9rem;font-weight:500;white-space:nowrap}
+.tags{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1rem}
+.skill-tag{background:linear-gradient(45deg,var(--secondary-color),var(--accent-color));color:var(--white);padding:.3rem .8rem;border-radius:15px;font-size:.8rem;font-weight:500;transition:var(--transition)}
+.skill-tag:hover{transform:translateY(-2px);box-shadow:0 4px 8px rgba(0,0,0,.1)}
+
+.education-item{padding:1.5rem 0;border-bottom:1px solid #eee}
+.education-item:last-child{border-bottom:none}
+.education-item h3{color:var(--primary-color);font-size:1.2rem;margin-bottom:.5rem;font-weight:500}
+.education-item h4{color:var(--accent-color);font-size:1rem;margin-bottom:.5rem;font-weight:400}
+.education-item p{color:#666;font-size:.9rem;margin:0}
+.skills-list{padding:0}
+.skill-category{margin-bottom:2rem}
+.skill-category:last-child{margin-bottom:0}
+.skill-category h3{color:var(--primary-color);font-size:1.2rem;margin-bottom:1rem;font-weight:500;padding-bottom:.5rem;border-bottom:2px solid var(--secondary-color)}
+
+.skill-bars{display:flex;flex-direction:column;gap:1rem}
+.skill-bar{display:flex;align-items:center;gap:1rem}
+.skill-name{min-width:120px;font-size:.9rem;color:var(--text-color);font-weight:500}
+.progress{flex:1;height:8px;background:#eee;border-radius:4px;position:relative}
+.progress-bar{height:100%;background:linear-gradient(90deg,var(--primary-color),var(--secondary-color));border-radius:4px;position:relative;transition:width 1s ease-in-out}
+.progress-text{position:absolute;right:8px;top:50%;transform:translateY(-50%);font-size:.7rem;color:var(--white);font-weight:500;background:#8e6c88;width:25px;height:25px;display:block;border-radius:100px;line-height:25px;text-align:center}
+
+@media (max-width:992px){.row{grid-template-columns:1fr;gap:2rem}.timeline{padding-left:1.5rem}.timeline-timestamp{position:static;display:inline-block;margin-top:1rem}}
+@media (max-width:768px){.about-header{padding:3rem 0}.about-header h1{font-size:2.5rem}.subtitle{font-size:1.1rem}.content-container{padding:3rem 1rem}.section-card{padding:2rem}.avatar{width:120px;height:120px}.skill-bar{flex-direction:column;align-items:flex-start;gap:.5rem}.skill-name{min-width:auto}}
+@media (max-width:480px){.section-card{padding:1.5rem}.timeline{padding-left:1rem}.timeline-content .card{padding:1.5rem}.tags{gap:.3rem}.skill-tag{font-size:.7rem;padding:.2rem .6rem}}
+</style>
+</head>
+<body>
+<header class="header">
+<div class="mobile-menu">
+    <nav>
+    <ul>
+              <li><a href="index.html">首页</a></li>
+              <li><a href="about.html">关于我</a></li>
+              <li><a href="projects.html">项目展示</a></li>
+              <li><a href="contact.html">联系方式</a></li>
+            </ul>
+    </nav>
+</div>
+<div class="header-container">
+    <div class="header-left">
+    <div class="logo">
+        <h1>Queenie<span>.Design</span></h1>
+    </div>
+    </div>
+
+    <nav class="nav-desktop">
+    <ul>
+          <li><a href="index.html">首页</a></li>
+          <li><a href="about.html" class="active">关于我</a></li>
+          <li><a href="projects.html">项目展示</a></li>
+          <li><a href="contact.html">联系方式</a></li>
+        </ul>
+    </nav>
+
+    <div class="header-right">
+    <div class="nav-toggle">
+        <i class="fas fa-bars"></i>
+    </div>
+    </div>
+</div>
+</header>
+
+<div class="about">
+    <div class="about-header">
+        <div class="profile-container">
+            <div class="avatar">
+                <img src="./img/avatar.jpg" alt="avatar">
+            </div>
+            <h1>关于我</h1>
+            <p class="subtitle">热爱创造，专注于平面设计与视觉表达</p>
+        </div>
+    </div>
+
+    <div class="content-container">
+        <div class="row">
+            <div class="col-main">
+                <section class="section-card">
+                    <h2>个人简介</h2>
+                    <p>你好！我是Queenie Qi，一名平面设计师，拥有5年的品牌设计和视觉创意经验。我热衷于通过设计讲述品牌故事，创造令人印象深刻的视觉体验。</p>
+                    <p>在我的职业生涯中，我主导完成多个品牌设计项目，涵盖品牌识别、包装设计、数字媒体和印刷品等领域。我善于将品牌理念转化为独特的视觉语言。</p>
+                    <p>擅长品牌视觉设计与数字化创意，精通Adobe设计软件，具备从品牌VI、包装到线上营销设计的全链路设计能力。擅长将设计需求转化为具有市场洞察力的视觉解决方案。</p>
+                </section>
+
+                <section class="section-card">
+                    <h2>工作经历</h2>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-node"></div>
+                            <div class="timeline-content">
+                                <div class="card">
+                                    <h3>高级平面设计师</h3>
+                                    <h4>上海爱人如己健康管理有限公司</h4>
+                                    <p>负责品牌视觉识别系统的设计和开发，带领团队完成多个重要品牌项目。<br/>
+                                        ■ 1.根据编写的文案制作公司视频，以及后期合成剪辑制作配音，根据需要制作简易视频动画。<br/>
+                                        ■ 2.平面宣传物料的设计，包含各种图片动图，节日节气等<br/>
+                                        ■ 3.企业logo设计，文化墙等相关的延展设计<br/>
+                                        ■ 4.企业画册每月的设计更新<br/>
+                                        ■ 5.文案编写<br/>
+                                        ■ 6.线上商城的搭建和维护<br/>
+                                        ■ 7.产品详情页设计，主图设计，宣传图设计<br/>
+                                        ■ 8.产品说明书的设计印刷
+                                    </p>
+                                    <div class="tags">
+                                        <span class="skill-tag">企业宣传视频</span>
+                                        <span class="skill-tag">产品宣传视频</span>
+                                        <span class="skill-tag">平面宣传物料</span>
+                                        <span class="skill-tag">文化墙等延展</span>
+                                        <span class="skill-tag">月刊企业画册</span>
+                                        <span class="skill-tag">线上商城搭建</span>
+                                    </div>
+                                </div>
+                                <div class="timeline-timestamp">2024.05-2025.06</div>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-node"></div>
+                            <div class="timeline-content">
+                                <div class="card">
+                                    <h3>平面设计师</h3>
+                                    <h4>上海艺录服饰</h4>
+                                    <p>参与多个设计师服装品牌的电商设计，包括线上线下设计宣传、拍摄产品和精修。<br/>
+                                        ■ 1、负责线下店铺海报宣传册和挂图等设计排版<br/>
+                                        ■ 2、负责新产品的图片拍摄和视频拍摄，同时修图和剪辑并配相关文案<br/>
+                                        ■ 3、主图详情页首页和相关推广图片的设计制作
+                                    </p>
+                                    <div class="tags">
+                                        <span class="skill-tag">文字编辑</span>
+                                        <span class="skill-tag">图像处理</span>
+                                        <span class="skill-tag">摄影摄像</span>
+                                        <span class="skill-tag">影视后期</span>
+                                        <span class="skill-tag">产品精修</span>
+                                    </div>
+                                </div>
+                                <div class="timeline-timestamp">2023.03-2024.05</div>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-node"></div>
+                            <div class="timeline-content">
+                                <div class="card">
+                                    <h3>平面设计师</h3>
+                                    <h4>空白（上海）电子商务有限公司</h4>
+                                    <p>内容描述：
+                                        ■ 1. 参与多场与品牌方展览活动和画廊的展出活动并独自负责所有设计工作
+                                        与前期的商场园区沟通工作并且联系制作方进行比价报价制作报价单，配合
+                                        完成项目的制作与实施;<br/>
+                                        ■ 2. 完成店铺首页的装修和风格设定，商品详情页的设计和优化，基本图片
+                                        尺寸色调的调整跟产品的修图<br/>
+                                        ■ 3.负责公司所有门店日常宣传、策划设计制作、公司展览会议布置；企业
+                                        宣传资料的设计、制作与创新；<br/>
+                                        ■ 4.能完成vi整体设计，结合vi系统进行品牌包装系列化的创意;<br/>
+                                        ■ 5.会使用视频剪辑软件，用ae软件制作gif动图，动态海报、动态邀请函等.
+                                    </p>
+                                    <div class="tags">
+                                        <span class="skill-tag">文字编辑</span>
+                                        <span class="skill-tag">图像处理</span>
+                                        <span class="skill-tag">摄影摄像</span>
+                                        <span class="skill-tag">影视后期</span>
+                                        <span class="skill-tag">产品精修</span>
+                                    </div>
+                                </div>
+                                <div class="timeline-timestamp">2020.07-2022.10</div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <div class="col-side">
+                <section class="section-card">
+                    <h2>基本信息</h2>
+                    <div class="education-item">
+                        <h3>年龄：26岁</h3>
+                        <h4>籍贯：山东济南</h4>
+                        <h4>手机号：15662641891</h4>
+                        <h4>邮箱：1323716022@qq.com</h4>
+                    </div>
+                </section>
+
+                <section class="section-card">
+                    <h2>教育背景</h2>
+                    <div class="education-item">
+                        <h3>视觉传播设计与制作</h3>
+                        <h4>山东农业工程学院</h4>
+                        <p>2017.9 - 2020.6</p>
+                    </div>
+                </section>
+
+                <section class="section-card">
+                    <h2>技能专长</h2>
+                    <div class="skills-list">
+                        <div class="skill-category">
+                            <h3>设计领域</h3>
+                            <div class="skill-bars">
+                                <div class="skill-bar">
+                                    <span class="skill-name">企业宣传</span>
+                                    <div class="progress">
+                                        <div class="progress-bar" style="width: 95%">
+                                            <span class="progress-text">熟练</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="skill-bar">
+                                    <span class="skill-name">电商设计</span>
+                                    <div class="progress">
+                                        <div class="progress-bar" style="width: 90%">
+                                            <span class="progress-text">熟练</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="skill-bar">
+                                    <span class="skill-name">艺术展设计</span>
+                                    <div class="progress">
+                                        <div class="progress-bar" style="width: 85%">
+                                            <span class="progress-text">熟练</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="skill-category">
+                            <h3>使用软件</h3>
+                            <div class="skill-bars">
+                                <div class="skill-bar">
+                                    <span class="skill-name">Photoshop</span>
+                                    <div class="progress">
+                                        <div class="progress-bar" style="width: 95%">
+                                            <span class="progress-text">熟练</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="skill-bar">
+                                    <span class="skill-name">Illustrator</span>
+                                    <div class="progress">
+                                        <div class="progress-bar" style="width: 93%">
+                                            <span class="progress-text">熟练</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="skill-bar">
+                                    <span class="skill-name">After Effects</span>
+                                    <div class="progress">
+                                        <div class="progress-bar" style="width: 90%">
+                                            <span class="progress-text">熟练</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="skill-bar">
+                                    <span class="skill-name">premiere pro</span>
+                                    <div class="progress">
+                                        <div class="progress-bar" style="width: 90%">
+                                            <span class="progress-text">熟练</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="skill-bar">
+                                    <span class="skill-name">Sai+Procreate</span>
+                                    <div class="progress">
+                                        <div class="progress-bar" style="width: 88%">
+                                            <span class="progress-text">熟练</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="skill-bar">
+                                    <span class="skill-name">C4D+MagicaCSG</span>
+                                    <div class="progress">
+                                        <div class="progress-bar" style="width: 84%">
+                                            <span class="progress-text">熟练</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer class="footer">
+<div class="footer-container">
+    <div class="footer-top">
+    <div class="footer-logo">
+        <h2>Queenie<span>.Design</span></h2>
+        <p>用设计讲述品牌故事，创造视觉冲击力</p>
+    </div>
+    
+    <div class="footer-links">
+        <div class="footer-nav">
+        <h3>导航</h3>
+        <ul>
+            <li><a href="index.html">首页</a></li>
+            <li><a href="about.html">关于我</a></li>
+            <li><a href="projects.html">项目展示</a></li>
+            <li><a href="contact.html">联系方式</a></li>
+        </ul>
+        </div>
+        
+        <div class="footer-social">
+        <h3>社交媒体</h3>
+        <div class="social-icons">
+            <a href="javascript:void(0)" class="child" target="_blank" aria-label="wechat"><i class="fab fa-weixin"></i></a>
+            <a href="https://www.zcool.com.cn/u/15820455" target="_blank" aria-label="Instagram"><img src="./img/zk.png" alt="zcool"></i></a>
+            <a href="https://huaban.com/user/q2e6m4je8vx" target="_blank" aria-label="LinkedIn"><img src="./img/hb.png" alt="huaban"></a>
+        </div>
+        <figure class="sibling"><img src="./img/QRcode.jpg" width="100%" alt="QRcode"></figure>
+        </div>
+    </div>
+    </div>
+    
+    <div class="footer-bottom">
+    <p>&copy; <script>document.write(new Date().getFullYear())</script> Queenie Qi. All rights reserved.</p>
+    </div>
+</div>
+</footer>
+</body>
+<script>
+  // 移动菜单切换
+  const menu = document.querySelector('.mobile-menu');
+  document.querySelector('.nav-toggle').addEventListener('click', function() {
+    menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+  });
+  menu.addEventListener('click', function() {
+    menu.style.display = 'none'
+  });
+
+    // 格式化进度条百分比的函数
+    function format(percentage) {
+        return percentage === 100 ? '精通' : percentage >= 80 ? '熟练' : '良好';
+    }
+
+    // 页面加载完成后的动画效果
+    document.addEventListener('DOMContentLoaded', function() {
+        // 添加进入动画类
+        document.querySelectorAll('.section-card').forEach((element, index) => {
+            setTimeout(() => {
+                element.classList.add('animate-in');
+            }, 100 * index);
+        });
+
+        // 进度条动画
+        document.querySelectorAll('.progress-bar').forEach((bar, index) => {
+            const width = bar.style.width;
+            bar.style.width = '0';
+            
+            setTimeout(() => {
+                bar.style.transition = 'width 1s ease-in-out';
+                bar.style.width = width;
+            }, 500 + (100 * index));
+        });
+    });
+
+//尾部显示二维码
+const child = document.querySelector('.child');
+const sibling = document.querySelector('.sibling');
+child.addEventListener('mouseenter', () => {
+sibling.style.opacity = 1;
+});
+child.addEventListener('mouseleave', () => {
+sibling.style.opacity = 0;
+});
+</script>
+</html>

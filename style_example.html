@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>平面设计师简历</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+<script>
+    tailwind.config = {
+        theme: {
+            extend: {
+                colors: {
+                    primary: '#3d2b1f',
+                    secondary: '#e67e22',
+                    accent: '#9b59b6',
+                    light: '#f9f5f1',
+                    dark: '#2c3e50'
+                },
+                fontFamily: {
+                    sans: ['Helvetica Neue', 'Arial', 'sans-serif'],
+                },
+            }
+        }
+    }
+</script>
+<style type="text/tailwindcss">
+    @layer utilities {
+        .text-stroke {
+            -webkit-text-stroke: 0.5px rgba(0, 0, 0, 0.1);
+        }
+        .divider {
+            height: 2px;
+            background: #e67e22;
+            margin: 1rem 0;
+            width: 60px;
+        }
+        .skill-badge {
+            transition: all 0.3s ease;
+        }
+        .skill-badge:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+    }
+</style>
+</head>
+<body class="bg-light font-sans text-gray-800">
+    <div class="container mx-auto px-4 py-8 max-w-5xl bg-white shadow-md">
+        <!-- 头部信息 -->
+        <header class="p-6 md:p-8 border-b border-gray-100">
+            <div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
+                <div>
+                    <h1 class="text-[clamp(2.2rem,5vw,3.5rem)] font-bold text-primary leading-tight">
+                        亓勤凤
+                    </h1>
+                    <h2 class="text-[clamp(1.2rem,3vw,1.6rem)] text-secondary mt-1">
+                        资深平面设计师
+                    </h2>
+                    <p class="mt-4 text-gray-600 max-w-xl">
+                        拥有7年平面设计经验，专注品牌视觉识别系统、印刷品设计与数字媒体创意。擅长将策略性思考转化为强有力的视觉表达，为客户创造独特且具有记忆点的品牌形象。
+                    </p>
+                </div>
+                <div class="text-right">
+                    <div class="flex items-center justify-end mb-2">
+                        <i class="fa fa-envelope-o mr-2 text-secondary"></i>
+                        <span class="text-gray-700">qiqinfeng.design@gmail.com</span>
+                    </div>
+                    <div class="flex items-center justify-end mb-2">
+                        <i class="fa fa-phone mr-2 text-secondary"></i>
+                        <span class="text-gray-700">138-0000-0000</span>
+                    </div>
+                    <div class="flex items-center justify-end mb-2">
+                        <i class="fa fa-map-marker mr-2 text-secondary"></i>
+                        <span class="text-gray-700">北京市朝阳区</span>
+                    </div>
+                    <div class="flex items-center justify-end">
+                        <i class="fa fa-globe mr-2 text-secondary"></i>
+                        <span class="text-gray-700">qiqinfeng.design</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- 专业技能 -->
+        <section class="p-6 md:p-8">
+            <h3 class="text-xl font-bold text-primary flex items-center">
+                <i class="fa fa-paint-brush mr-3 text-secondary"></i>专业技能
+            </h3>
+            <div class="divider"></div>
+            
+            <div class="grid md:grid-cols-2 gap-6">
+                <div>
+                    <h4 class="font-semibold text-gray-800 mb-3">设计软件</h4>
+                    <div class="grid grid-cols-2 gap-2">
+                        <div class="skill-badge bg-gray-50 p-3 rounded flex items-center">
+                            <span class="w-24">Adobe Photoshop</span>
+                            <span class="ml-auto text-secondary">★★★★★</span>
+                        </div>
+                        <div class="skill-badge bg-gray-50 p-3 rounded flex items-center">
+                            <span class="w-24">Adobe Illustrator</span>
+                            <span class="ml-auto text-secondary">★★★★★</span>
+                        </div>
+                        <div class="skill-badge bg-gray-50 p-3 rounded flex items-center">
+                            <span class="w-24">InDesign</span>
+                            <span class="ml-auto text-secondary">★★★★☆</span>
+                        </div>
+                        <div class="skill-badge bg-gray-50 p-3 rounded flex items-center">
+                            <span class="w-24">CorelDRAW</span>
+                            <span class="ml-auto text-secondary">★★★★☆</span>
+                        </div>
+                        <div class="skill-badge bg-gray-50 p-3 rounded flex items-center">
+                            <span class="w-24">Sketch</span>
+                            <span class="ml-auto text-secondary">★★★☆☆</span>
+                        </div>
+                        <div class="skill-badge bg-gray-50 p-3 rounded flex items-center">
+                            <span class="w-24">After Effects</span>
+                            <span class="ml-auto text-secondary">★★★☆☆</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold text-gray-800 mb-3">设计能力</h4>
+                    <div class="space-y-2">
+                        <div class="flex items-center">
+                            <span class="w-32 text-gray-700">品牌视觉识别系统</span>
+                            <div class="flex-1 h-2 bg-gray-200 rounded-full overflow-hidden">
+                                <div class="h-full bg-secondary rounded-full" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        <div class="flex items-center">
+                            <span class="w-32 text-gray-700">包装设计</span>
+                            <div class="flex-1 h-2 bg-gray-200 rounded-full overflow-hidden">
+                                <div class="h-full bg-secondary rounded-full" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <div class="flex items-center">
+                            <span class="w-32 text-gray-700">宣传册设计</span>
+                            <div class="flex-1 h-2 bg-gray-200 rounded-full overflow-hidden">
+                                <div class="h-full bg-secondary rounded-full" style="width: 95%"></div>
+                            </div>
+                        </div>
+                        <div class="flex items-center">
+                            <span class="w-32 text-gray-700">海报设计</span>
+                            <div class="flex-1 h-2 bg-gray-200 rounded-full overflow-hidden">
+                                <div class="h-full bg-secondary rounded-full" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        <div class="flex items-center">
+                            <span class="w-32 text-gray-700">UI设计基础</span>
+                            <div class="flex-1 h-2 bg-gray-200 rounded-full overflow-hidden">
+                                <div class="h-full bg-secondary rounded-full" style="width: 70%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-6">
+                <h4 class="font-semibold text-gray-800 mb-3">其他技能</h4>
+                <div class="flex flex-wrap gap-3">
+                    <span class="px-4 py-2 bg-secondary/10 text-primary rounded-full text-sm font-medium">印刷工艺知识</span>
+                    <span class="px-4 py-2 bg-secondary/10 text-primary rounded-full text-sm font-medium">品牌策略</span>
+                    <span class="px-4 py-2 bg-secondary/10 text-primary rounded-full text-sm font-medium">创意指导</span>
+                    <span class="px-4 py-2 bg-secondary/10 text-primary rounded-full text-sm font-medium">摄影基础</span>
+                    <span class="px-4 py-2 bg-secondary/10 text-primary rounded-full text-sm font-medium">中英双语工作</span>
+                    <span class="px-4 py-2 bg-secondary/10 text-primary rounded-full text-sm font-medium">项目管理</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- 工作经验 -->
+        <section class="p-6 md:p-8 bg-gray-50">
+            <h3 class="text-xl font-bold text-primary flex items-center">
+                <i class="fa fa-briefcase mr-3 text-secondary"></i>工作经验
+            </h3>
+            <div class="divider"></div>
+            
+            <!-- 工作经历1 -->
+            <div class="mb-8">
+                <div class="flex flex-col md:flex-row md:items-center justify-between mb-2">
+                    <h4 class="font-bold text-lg text-primary">资深平面设计师 | 创意图腾设计公司</h4>
+                    <span class="text-gray-500 mt-1 md:mt-0">2018年5月 - 至今</span>
+                </div>
+                <p class="text-gray-600 mb-3">负责国内外知名品牌的视觉识别系统设计与推广物料创作</p>
+                <ul class="list-disc list-inside text-gray-700 space-y-1 ml-2">
+                    <li>主导完成15+品牌全案设计，包括logo设计、VI系统、包装及宣传物料，客户满意度100%</li>
+                    <li>负责设计团队管理与创意指导，带领6人设计师团队完成年度30+项目，按时交付率95%</li>
+                    <li>制定设计流程与规范，提升团队工作效率40%，降低客户修改次数30%</li>
+                    <li>与市场部、客户紧密合作，将品牌策略转化为有效的视觉传达方案</li>
+                    <li>负责重要客户提案与设计说明，成功赢得多个重要项目，合同总额超500万元</li>
+                </ul>
+            </div>
+            
+            <!-- 工作经历2 -->
+            <div>
+                <div class="flex flex-col md:flex-row md:items-center justify-between mb-2">
+                    <h4 class="font-bold text-lg text-primary">平面设计师 | 视觉焦点广告公司</h4>
+                    <span class="text-gray-500 mt-1 md:mt-0">2015年3月 - 2018年4月</span>
+                </div>
+                <p class="text-gray-600 mb-3">负责快消品、餐饮行业的品牌视觉设计与营销物料制作</p>
+                <ul class="list-disc list-inside text-gray-700 space-y-1 ml-2">
+                    <li>完成50+品牌视觉设计项目，包括包装、海报、宣传册等各类物料</li>
+                    <li>参与品牌定位与创意构思，提供多样化的设计方案供客户选择</li>
+                    <li>与印刷厂紧密合作，确保设计作品完美呈现，把控印刷质量与成本</li>
+                    <li>设计作品曾获2017年度最佳包装设计奖提名</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- 代表作品 -->
+        <section class="p-6 md:p-8">
+            <h3 class="text-xl font-bold text-primary flex items-center">
+                <i class="fa fa-th-large mr-3 text-secondary"></i>代表作品
+            </h3>
+            <div class="divider"></div>
+            
+            <div class="grid md:grid-cols-2 gap-6">
+                <!-- 作品1 -->
+                <div class="border border-gray-200 rounded-lg overflow-hidden hover:shadow-lg transition-shadow">
+                    <div class="bg-gray-100 h-48 flex items-center justify-center">
+                        <img src="https://picsum.photos/seed/brand1/600/400" alt="自然有机食品品牌视觉识别系统设计" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-4">
+                        <h4 class="font-bold text-primary">自然有机食品品牌视觉识别系统</h4>
+                        <p class="text-sm text-gray-500 mt-1">品牌全案设计 | 2022年</p>
+                        <p class="text-gray-700 text-sm mt-2">
+                            为新兴有机食品品牌打造全套视觉识别系统，包括logo设计、包装系统、品牌手册及宣传物料，
+                            帮助品牌在竞争激烈的市场中建立独特形象，产品上市首月销量超出预期40%。
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- 作品2 -->
+                <div class="border border-gray-200 rounded-lg overflow-hidden hover:shadow-lg transition-shadow">
+                    <div class="bg-gray-100 h-48 flex items-center justify-center">
+                        <img src="https://picsum.photos/seed/package/600/400" alt="高端化妆品系列包装设计" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-4">
+                        <h4 class="font-bold text-primary">高端化妆品系列包装设计</h4>
+                        <p class="text-sm text-gray-500 mt-1">包装设计 | 2021年</p>
+                        <p class="text-gray-700 text-sm mt-2">
+                            为国际化妆品品牌设计全新产品线包装，融合东方美学与现代简约风格，
+                            提升产品高端感与辨识度，该系列产品销售额同比增长35%。
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- 作品3 -->
+                <div class="border border-gray-200 rounded-lg overflow-hidden hover:shadow-lg transition-shadow">
+                    <div class="bg-gray-100 h-48 flex items-center justify-center">
+                        <img src="https://picsum.photos/seed/culture/600/400" alt="文化艺术节视觉形象设计" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-4">
+                        <h4 class="font-bold text-primary">文化艺术节视觉形象设计</h4>
+                        <p class="text-sm text-gray-500 mt-1">视觉识别系统 | 2020年</p>
+                        <p class="text-gray-700 text-sm mt-2">
+                            为年度文化艺术节设计全套视觉形象，包括主视觉、宣传海报、节目册、
+                            纪念品等，设计风格现代而富有文化内涵，吸引参与人数创历史新高。
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- 作品4 -->
+                <div class="border border-gray-200 rounded-lg overflow-hidden hover:shadow-lg transition-shadow">
+                    <div class="bg-gray-100 h-48 flex items-center justify-center">
+                        <img src="https://picsum.photos/seed/restaurant/600/400" alt="连锁餐厅品牌升级设计" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-4">
+                        <h4 class="font-bold text-primary">连锁餐厅品牌升级设计</h4>
+                        <p class="text-sm text-gray-500 mt-1">品牌升级 | 2019年</p>
+                        <p class="text-gray-700 text-sm mt-2">
+                            为连锁餐厅品牌进行视觉升级，保留原有品牌资产的同时注入现代元素，
+                            设计新logo、餐厅视觉系统及营销物料，品牌焕新后顾客流量增长25%。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 教育背景 -->
+        <section class="p-6 md:p-8 bg-gray-50">
+            <h3 class="text-xl font-bold text-primary flex items-center">
+                <i class="fa fa-graduation-cap mr-3 text-secondary"></i>教育背景
+            </h3>
+            <div class="divider"></div>
+            
+            <div class="flex flex-col md:flex-row md:items-center justify-between">
+                <div>
+                    <h4 class="font-bold text-primary">视觉传达设计 | 硕士</h4>
+                    <p class="text-gray-600">中央美术学院</p>
+                    <p class="text-gray-700 mt-1">主修方向：品牌设计与视觉识别</p>
+                </div>
+                <span class="text-gray-500 mt-2 md:mt-0">2012年9月 - 2015年6月</span>
+            </div>
+            
+            <div class="mt-6 flex flex-col md:flex-row md:items-center justify-between">
+                <div>
+                    <h4 class="font-bold text-primary">平面设计 | 本科</h4>
+                    <p class="text-gray-600">中国美术学院</p>
+                    <p class="text-gray-700 mt-1">获得优秀毕业生称号</p>
+                </div>
+                <span class="text-gray-500 mt-2 md:mt-0">2008年9月 - 2012年6月</span>
+            </div>
+        </section>
+
+        <!-- 获奖与证书 -->
+        <section class="p-6 md:p-8">
+            <h3 class="text-xl font-bold text-primary flex items-center">
+                <i class="fa fa-trophy mr-3 text-secondary"></i>获奖与证书
+            </h3>
+            <div class="divider"></div>
+            
+            <div class="grid md:grid-cols-2 gap-4">
+                <div class="flex">
+                    <div class="mr-4 text-secondary">
+                        <i class="fa fa-award text-xl"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-semibold">2022年度中国优秀品牌设计奖</h4>
+                        <p class="text-sm text-gray-600">中国设计师协会</p>
+                    </div>
+                </div>
+                
+                <div class="flex">
+                    <div class="mr-4 text-secondary">
+                        <i class="fa fa-award text-xl"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-semibold">2020国际包装设计大赛银奖</h4>
+                        <p class="text-sm text-gray-600">国际平面设计协会</p>
+                    </div>
+                </div>
+                
+                <div class="flex">
+                    <div class="mr-4 text-secondary">
+                        <i class="fa fa-certificate text-xl"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-semibold">Adobe认证创意设计师</h4>
+                        <p class="text-sm text-gray-600">Adobe Systems</p>
+                    </div>
+                </div>
+                
+                <div class="flex">
+                    <div class="mr-4 text-secondary">
+                        <i class="fa fa-certificate text-xl"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-semibold">高级品牌策划师资格证</h4>
+                        <p class="text-sm text-gray-600">中国品牌协会</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 自我评价 -->
+        <section class="p-6 md:p-8 border-t border-gray-100">
+            <h3 class="text-xl font-bold text-primary flex items-center">
+                <i class="fa fa-quote-left mr-3 text-secondary"></i>自我评价
+            </h3>
+            <div class="divider"></div>
+            
+            <p class="text-gray-700 leading-relaxed">
+                作为一名拥有7年经验的平面设计师，我坚信设计不仅是视觉表达，更是解决问题的过程。我注重从品牌策略出发，
+                深入理解客户需求与市场环境，创造既美观又有效的设计解决方案。我拥有良好的审美能力与创意思维，
+                同时具备出色的沟通能力与团队协作精神，能够高效地与客户及团队成员合作，确保项目顺利完成。
+                我始终保持学习的热情，关注设计趋势与新技术，不断提升自身专业水平，致力于为客户创造真正有价值的设计作品。
+            </p>
+        </section>
+
+        <footer class="p-6 text-center text-gray-500 text-sm border-t border-gray-100">
+            <p>更新日期：2023年10月</p>
+            <button id="printBtn" class="mt-3 px-4 py-2 bg-secondary text-white rounded hover:bg-secondary/90 transition-colors">
+                <i class="fa fa-print mr-1"></i> 打印简历
+            </button>
+        </footer>
+    </div>
+
+    <script>
+        // 打印功能
+        document.getElementById('printBtn').addEventListener('click', function() {
+            window.print();
+        });
+        
+        // 添加打印样式
+        const style = document.createElement('style');
+        style.type = 'text/css';
+        style.media = 'print';
+        style.innerHTML = `
+            @page {
+                margin: 1.5cm;
+                size: A4;
+            }
+            body {
+                font-size: 11pt;
+                background-color: white;
+            }
+            .divider {
+                page-break-inside: avoid;
+            }
+            section {
+                page-break-inside: avoid;
+            }
+            .grid {
+                page-break-inside: avoid;
+            }
+            #printBtn {
+                display: none !important;
+            }
+            img {
+                max-width: 100%;
+                height: auto;
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>
+    

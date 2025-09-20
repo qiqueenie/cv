@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>联系方式 - Queenie Design</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,Cantarell,'Open Sans','Helvetica Neue',sans-serif;line-height:1.6;color:#333;background-color:#f9f7f8}
+a{text-decoration:none;color:inherit}
+img{max-width:100%;height:auto}
+.main-content{margin-top:70px}
+.header{position:fixed;top:0;left:0;width:100%;z-index:100;height:70px;background:rgba(255,255,255,.98);backdrop-filter:blur(10px);box-shadow:0 2px 15px rgba(0,0,0,.05);transition:all .3s ease}
+.header-container{display:flex;justify-content:space-between;align-items:center;height:100%;padding:0 2rem;max-width:1400px;margin:0 auto}
+.logo{cursor:pointer}
+.logo h1{font-size:1.8rem;font-weight:500;color:#8e6c88;margin:0;letter-spacing:1px;transition:all .3s ease}
+.logo h1 span{color:#d4b8c7;font-weight:300}
+
+.nav-desktop{margin:0 2rem}
+.nav-desktop ul{display:flex;list-style:none;margin:0;padding:0;gap:3rem}
+.nav-desktop ul li a{color:#8e6c88;text-decoration:none;font-size:1rem;font-weight:400;transition:all .3s ease;position:relative;padding:.5rem 0;letter-spacing:.5px}
+.nav-desktop ul li a:hover,.nav-desktop ul li a.active{color:#a58faa}
+.nav-desktop ul li a::after{content:'';position:absolute;bottom:-2px;left:0;width:100%;height:2px;background-color:#d4b8c7;transform:scaleX(0);transition:transform .3s ease;transform-origin:right}
+.nav-desktop ul li a:hover::after,.nav-desktop ul li a.active::after{transform:scaleX(1);transform-origin:left}
+.desktop-only{display:block}
+.nav-toggle{display:none;cursor:pointer;font-size:1.5rem;color:#8e6c88}
+
+@media (max-width:768px){.header-container{background-color:white;padding:0 1rem;position:relative;z-index:100}.logo h1{font-size:1.5rem}.nav-desktop{display:none}.nav-toggle{display:block}}
+.mobile-menu{display:none;position:fixed;z-index:99;top:0;left:0;width:100%;height:100vh;background:#3333}
+.mobile-menu nav{padding-top:70px;background-color:#fffe}
+.mobile-menu ul{list-style:none;padding:6px 0}
+.mobile-menu li{padding:6px 0}
+.mobile-menu li:hover{background-color:#fff}
+.mobile-menu a{display:block;padding:10px;color:#333;font-size:1.1rem;text-align:center;border-radius:5px}
+.mobile-menu a:active{background:#f0f0f0}
+
+.footer{background:linear-gradient(135deg,#8e6c88 0%,#6a4d6b 100%);color:white;padding:5rem 0 2rem;position:relative;overflow:hidden}
+.footer::before{content:'';position:absolute;top:0;left:0;width:100%;height:100%;background-image:url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgdmlld0JveD0iMCAwIDYwIDYwIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmZmZmYiIGZpbGwtb3BhY2l0eT0iMC4xIj48cGF0aCBkPSJNMzYgMzRjMC0yLjIgMS44LTQgNC00czQgMS44IDQgNC0xLjggNC00IDQtNC0xLjgtNC00ek0xNiAxNGMwLTIuMiAxLjgtNCA0LTRzNCAxLjggNCA0LTEuOCA0LTQgNC00LTEuOC00LTR6Ii8+PC9nPjwvZz48L3N2Zz4=');opacity:.05;pointer-events:none}
+.footer-container{max-width:1200px;margin:0 auto;padding:0 2rem;position:relative;z-index:1}
+.footer-top{display:grid;grid-template-columns:1fr 2fr;gap:3rem;margin-bottom:3rem}
+.footer-logo h2{font-size:2rem;margin:0 0 1.5rem;font-weight:500;letter-spacing:1px}
+.footer-logo h2 span{color:#d4b8c7;font-weight:300}
+.footer-logo p{font-size:1.1rem;line-height:1.8;opacity:.9;margin:0}
+
+.footer-links{display:grid;grid-template-columns:repeat(2,1fr);gap:2rem}
+.footer-links h3{font-size:1.2rem;margin:0 0 1.5rem;font-weight:500;color:#d4b8c7;letter-spacing:.5px}
+.footer-links ul{list-style:none;padding:0;margin:0}
+.footer-links ul li{margin-bottom:1rem}
+.footer-links ul li a{color:rgba(255,255,255,.85);text-decoration:none;transition:all .3s ease;font-size:1rem;display:inline-block}
+.footer-links ul li a:hover{color:white;transform:translateX(5px)}
+.social-icons{display:flex;gap:1.5rem;margin-top:1rem}
+.social-icons a{display:flex;align-items:center;justify-content:center;width:45px;height:45px;border-radius:50%;background:rgba(255,255,255,.1);color:white;transition:all .3s ease;font-size:1.2rem}
+.social-icons a:hover{background:rgba(255,255,255,.2);transform:translateY(-3px)}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.15);padding-top:2rem;text-align:center}
+.footer-bottom p{margin:0;font-size:.9rem;opacity:.7}
+.social-icons img{padding:14px}
+figure{width:200px;background-color:#fff;border-radius:10px;overflow:hidden;opacity:0;transition:all .3s ease-in-out;margin-top:10px}
+
+@media (max-width:992px){.footer-top{grid-template-columns:1fr;gap:2rem}}
+@media (max-width:768px){.footer{padding:3rem 0 2rem}.footer-container{padding:0 1rem}.footer-links{grid-template-columns:1fr}}
+:root{--primary-color:#8e6c88;--secondary-color:#d4b8c7;--accent-color:#a58faa;--text-color:#333;--light-bg:#f9f7f8;--white:#ffffff;--shadow:0 5px 15px rgba(0,0,0,.1);--border-radius:8px;--transition:all .3s ease}
+
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,Cantarell,'Open Sans','Helvetica Neue',sans-serif;line-height:1.6;color:var(--text-color);background-color:var(--light-bg)}
+a{text-decoration:none;color:inherit}
+img{max-width:100%;height:auto}
+.btn{display:inline-block;padding:12px 30px;border:none;border-radius:var(--border-radius);font-size:1rem;font-weight:500;text-align:center;cursor:pointer;transition:var(--transition);text-decoration:none}
+.btn-primary{background:linear-gradient(135deg,var(--primary-color) 0%,var(--accent-color) 100%);color:var(--white)}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 25px rgba(142,108,136,.3)}
+
+.header{position:fixed;top:0;left:0;width:100%;z-index:100;height:70px;background:rgba(255,255,255,.98);backdrop-filter:blur(10px);box-shadow:0 2px 15px rgba(0,0,0,.05);transition:var(--transition)}
+.header-scrolled{background:rgba(255,255,255,.95);box-shadow:0 2px 20px rgba(0,0,0,.1)}
+.header-container{display:flex;justify-content:space-between;align-items:center;height:100%;padding:0 2rem;max-width:1400px;margin:0 auto}
+.logo{cursor:pointer}
+.logo h1{font-size:1.8rem;font-weight:500;color:var(--primary-color);margin:0;letter-spacing:1px;transition:var(--transition)}
+.logo h1 span{color:var(--secondary-color);font-weight:300}
+.nav-desktop{margin:0 2rem}
+.nav-desktop ul{display:flex;list-style:none;margin:0;padding:0;gap:3rem}
+.nav-desktop ul li a{color:var(--primary-color);text-decoration:none;font-size:1rem;font-weight:400;transition:var(--transition);position:relative;padding:.5rem 0;letter-spacing:.5px}
+.nav-desktop ul li a:hover,.nav-desktop ul li a.active{color:var(--accent-color)}
+.nav-desktop ul li a::after{content:'';position:absolute;bottom:-2px;left:0;width:100%;height:2px;background-color:var(--secondary-color);transform:scaleX(0);transition:transform .3s ease;transform-origin:right}
+.nav-desktop ul li a:hover::after,.nav-desktop ul li a.active::after{transform:scaleX(1);transform-origin:left}
+.nav-toggle{display:none;cursor:pointer;font-size:1.5rem;color:var(--primary-color)}
+
+.mobile-menu{display:none;position:fixed;top:0;left:0;width:100%;height:100vh;background:rgba(0,0,0,.9);z-index:99}
+.mobile-menu nav{background:var(--white);height:100%;padding-top:70px}
+.mobile-menu ul{list-style:none;padding:2rem 0}
+.mobile-menu li{padding:.5rem 0}
+.mobile-menu a{display:block;padding:1rem 2rem;color:var(--text-color);font-size:1.1rem;transition:var(--transition)}
+.mobile-menu a:hover{background:var(--light-bg);color:var(--primary-color)}
+.main-content{margin-top:70px}
+.contact{min-height:100vh;background:var(--light-bg)}
+.contact-header{background:linear-gradient(135deg,var(--primary-color) 0%,var(--secondary-color) 100%);color:var(--white);padding:4rem 0;text-align:center;position:relative;overflow:hidden}
+.contact-header::before{content:'';position:absolute;top:0;left:0;width:100%;height:100%;background-image:url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgdmlld0JveD0iMCAwIDYwIDYwIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmZmZmYiIGZpbGwtb3BhY2l0eT0iMC4xIj48cGF0aCBkPSJNMzYgMzRjMC0yLjIgMS44LTQgNC00czQgMS44IDQgNC0xLjggNC00IDQtNC0xLjgtNC00ek0xNiAxNGMwLTIuMiAxLjgtNCA0LTRzNCAxLjggNCA0LTEuOCA0LTQgNC00LTEuOC00LTR6Ii8+PC9nPjwvZz48L3N2Zz4=');opacity:.1}
+.contact-header h1{font-size:3rem;margin-bottom:1rem;font-weight:300;letter-spacing:2px;position:relative;z-index:1}
+.contact-header p{font-size:1.3rem;opacity:.9;font-weight:300;letter-spacing:1px;position:relative;z-index:1}
+.content-container{max-width:1200px;margin:0 auto;padding:5rem 2rem}
+
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start}
+.contact-form-container,.contact-info-container{background:var(--white);padding:3rem;border-radius:var(--border-radius);box-shadow:var(--shadow)}
+.contact-form-container h2,.contact-info-container h2{font-size:2rem;margin-bottom:2rem;color:var(--primary-color);font-weight:400}
+.contact-form{display:flex;flex-direction:column;gap:1.5rem}
+.form-group{display:flex;flex-direction:column}
+.form-group label{margin-bottom:.5rem;font-weight:500;color:var(--text-color)}
+.form-group input,.form-group textarea{padding:12px 16px;border:2px solid #e0e0e0;border-radius:var(--border-radius);font-size:1rem;transition:var(--transition);font-family:inherit}
+.form-group input:focus,.form-group textarea:focus{outline:none;border-color:var(--primary-color);box-shadow:0 0 0 3px rgba(142,108,136,.1)}
+.form-group textarea{resize:vertical;min-height:120px}
+.success-message{display:none;background:#d4edda;color:#155724;padding:1rem;border-radius:var(--border-radius);margin-bottom:1rem;border:1px solid #c3e6cb}
+
+.contact-info-items{margin-bottom:3rem}
+.contact-info-item{display:flex;align-items:center;margin-bottom:2rem;padding:1.5rem;background:var(--light-bg);border-radius:var(--border-radius);transition:var(--transition)}
+.contact-info-item:hover{transform:translateY(-2px);box-shadow:var(--shadow)}
+.info-icon{width:60px;height:60px;background:linear-gradient(135deg,var(--primary-color) 0%,var(--accent-color) 100%);border-radius:50%;display:flex;align-items:center;justify-content:center;margin-right:1.5rem;flex-shrink:0}
+.info-icon i{font-size:1.5rem;color:var(--white)}
+.info-content h3{font-size:1.2rem;margin-bottom:.5rem;color:var(--primary-color);font-weight:500}
+.info-content p{color:var(--text-color);font-size:1rem}
+.social-links h2{font-size:1.5rem;margin-bottom:1.5rem;color:var(--primary-color);font-weight:400}
+.social-icons{display:flex;gap:1rem}
+.social-icons a{display:flex;align-items:center;justify-content:center;width:50px;height:50px;border-radius:50%;background:linear-gradient(135deg,var(--primary-color) 0%,var(--accent-color) 100%);color:var(--white);transition:var(--transition);font-size:1.2rem}
+.social-icons a:hover{transform:translateY(-3px);box-shadow:0 8px 25px rgba(142,108,136,.3)}
+
+.footer{background:linear-gradient(135deg,var(--primary-color) 0%,#6a4d6b 100%);color:var(--white);padding:5rem 0 2rem;position:relative;overflow:hidden}
+.footer::before{content:'';position:absolute;top:0;left:0;width:100%;height:100%;background-image:url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgdmlld0JveD0iMCAwIDYwIDYwIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmZmZmYiIGZpbGwtb3BhY2l0eT0iMC4xIj48cGF0aCBkPSJNMzYgMzRjMC0yLjIgMS44LTQgNC00czQgMS44IDQgNC0xLjggNC00IDQtNC0xLjgtNC00ek0xNiAxNGMwLTIuMiAxLjgtNCA0LTRzNCAxLjggNCA0LTEuOCA0LTQgNC00LTEuOC00LTR6Ii8+PC9nPjwvZz48L3N2Zz4=');opacity:.05;pointer-events:none}
+.footer-container{max-width:1200px;margin:0 auto;padding:0 2rem;position:relative;z-index:1}
+.footer-top{display:grid;grid-template-columns:1fr 2fr;gap:3rem;margin-bottom:3rem}
+.footer-logo h2{font-size:2rem;margin:0 0 1.5rem;font-weight:500;letter-spacing:1px}
+.footer-logo h2 span{color:var(--secondary-color);font-weight:300}
+.footer-logo p{font-size:1.1rem;line-height:1.8;opacity:.9;margin:0}
+.footer-links{display:grid;grid-template-columns:repeat(2,1fr);gap:2rem}
+.footer-links h3{font-size:1.2rem;margin:0 0 1.5rem;font-weight:500;color:var(--secondary-color);letter-spacing:.5px}
+.footer-links ul{list-style:none;padding:0;margin:0}
+.footer-links ul li{margin-bottom:1rem}
+.footer-links ul li a{color:rgba(255,255,255,.85);text-decoration:none;transition:var(--transition);font-size:1rem;display:inline-block}
+.footer-links ul li a:hover{color:var(--white);transform:translateX(5px)}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.15);padding-top:2rem;text-align:center}
+.footer-bottom p{margin:0;font-size:.9rem;opacity:.7}
+
+@media (max-width:992px){.contact-grid{grid-template-columns:1fr;gap:3rem}.footer-top{grid-template-columns:1fr;gap:2rem}}
+@media (max-width:768px){.header-container{padding:0 1rem}.logo h1{font-size:1.5rem}.nav-desktop{display:none}.nav-toggle{display:block}.contact-header{padding:3rem 0}.contact-header h1{font-size:2.5rem}.contact-header p{font-size:1.1rem}.content-container{padding:3rem 1rem}.contact-form-container,.contact-info-container{padding:2rem}.contact-info-item{flex-direction:column;text-align:center}.info-icon{margin-right:0;margin-bottom:1rem}.footer{padding:3rem 0 2rem}.footer-container{padding:0 1rem}.footer-links{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+<header class="header">
+  <div class="mobile-menu">
+    <nav>
+      <ul>
+        <li><a href="index.html">首页</a></li>
+        <li><a href="about.html">关于我</a></li>
+        <li><a href="projects.html">项目展示</a></li>
+        <li><a href="video.html">视频剪辑</a></li>
+        <li><a href="contact.html">联系方式</a></li>
+      </ul>
+    </nav>
+  </div>
+  <div class="header-container">
+    <div class="header-left">
+      <div class="logo">
+        <h1>Queenie<span>.Design</span></h1>
+      </div>
+    </div>
+
+    <nav class="nav-desktop">
+      <ul>
+          <li><a href="index.html">首页</a></li>
+          <li><a href="about.html">关于我</a></li>
+          <li><a href="projects.html">项目展示</a></li>
+          <li><a href="contact.html" class="active">联系方式</a></li>
+        </ul>
+    </nav>
+
+    <div class="header-right">
+      <div class="nav-toggle">
+        <i class="fas fa-bars"></i>
+      </div>
+    </div>
+  </div>
+</header>
+
+  <main class="main-content">
+    <div class="contact">
+      <div class="contact-header">
+        <h1>联系方式</h1>
+        <p>有项目想法或合作机会？请随时联系我</p>
+      </div>
+
+      <div class="content-container">
+        <div class="contact-grid">
+          <div class="contact-form-container">
+            <h2>发送消息</h2>
+            <div class="success-message" id="successMessage">
+              消息已成功发送！我会尽快回复您。
+            </div>
+            <form id="contactForm" class="contact-form">
+              <div class="form-group">
+                <label for="name">姓名</label>
+                <input type="text" id="name" name="name" required>
+              </div>
+              <div class="form-group">
+                <label for="email">邮箱</label>
+                <input type="email" id="email" name="email" required>
+              </div>
+              <div class="form-group">
+                <label for="subject">主题</label>
+                <input type="text" id="subject" name="subject" required>
+              </div>
+              <div class="form-group">
+                <label for="message">消息</label>
+                <textarea id="message" name="message" rows="6" required></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary">发送消息</button>
+            </form>
+          </div>
+
+          <div class="contact-info-container">
+            <h2>联系信息</h2>
+            <div class="contact-info-items">
+              <div class="contact-info-item">
+                <div class="info-icon">
+                  <i class="fas fa-envelope"></i>
+                </div>
+                <div class="info-content">
+                  <h3>邮箱</h3>
+                  <p>1323716022@qq.com</p>
+                </div>
+              </div>
+              <div class="contact-info-item">
+                <div class="info-icon">
+                  <i class="fas fa-phone"></i>
+                </div>
+                <div class="info-content">
+                  <h3>电话</h3>
+                  <p>+86 156 **** 1891</p>
+                </div>
+              </div>
+              <div class="contact-info-item">
+                <div class="info-icon">
+                  <i class="fas fa-map-marker-alt"></i>
+                </div>
+                <div class="info-content">
+                  <h3>地址</h3>
+                  <p>上海市宝山区顾村镇</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="social-links">
+              <h2>社交媒体</h2>
+              <div class="social-icons">
+                <a href="#" target="_blank" aria-label="Behance"><i class="fab fa-behance"></i></a>
+                <a href="#" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-top">
+        <div class="footer-logo">
+          <h2>Queenie<span>.Design</span></h2>
+          <p>用设计讲述品牌故事，创造视觉冲击力</p>
+        </div>
+        
+        <div class="footer-links">
+          <div class="footer-nav">
+            <h3>导航</h3>
+            <ul>
+              <li><a href="index.html">首页</a></li>
+              <li><a href="about.html">关于我</a></li>
+              <li><a href="projects.html">项目展示</a></li>
+              <li><a href="contact.html">联系方式</a></li>
+            </ul>
+          </div>
+          
+          <div class="footer-social">
+            <h3>社交媒体</h3>
+            <div class="social-icons">
+              <a href="javascript:void(0)" class="child" target="_blank" aria-label="wechat"><i class="fab fa-weixin"></i></a>
+              <a href="https://www.zcool.com.cn/u/15820455" target="_blank" aria-label="Instagram"><img src="./img/zk.png" alt="zcool"></i></a>
+              <a href="https://huaban.com/user/q2e6m4je8vx" target="_blank" aria-label="LinkedIn"><img src="./img/hb.png" alt="huaban"></a>
+            </div>
+            <figure class="sibling"><img src="./img/QRcode.jpg" width="100%" alt="QRcode"></figure>
+          </div>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>&copy; <script>document.write(new Date().getFullYear())</script> Queenie Qi. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+  // 移动菜单切换
+const menu = document.querySelector('.mobile-menu');
+document.querySelector('.nav-toggle').addEventListener('click', function() {
+  menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+});
+menu.addEventListener('click', function() {
+  menu.style.display = 'none'
+});
+
+
+    // 初始化函数
+    document.addEventListener('DOMContentLoaded', function() {
+      // 移动菜单切换
+      document.getElementById('navToggle').addEventListener('click', function() {
+        const menu = document.getElementById('mobileMenu');
+        menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+      });
+      
+      // 滚动监听
+      window.addEventListener('scroll', function() {
+        const header = document.getElementById('header');
+        if (window.scrollY > 50) {
+          header.classList.add('header-scrolled');
+        } else {
+          header.classList.remove('header-scrolled');
+        }
+      });
+
+      // 表单提交处理
+      document.getElementById('contactForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // 在实际项目中，这里应该有AJAX请求发送表单数据到服务器
+        // 这里仅做演示，显示成功消息
+        
+        // 显示成功消息
+        document.getElementById('successMessage').style.display = 'block';
+        
+        // 清空表单
+        this.reset();
+        
+        // 5秒后隐藏成功消息
+        setTimeout(function() {
+          document.getElementById('successMessage').style.display = 'none';
+        }, 5000);
+      });
+    });
+
+//尾部显示二维码
+const child = document.querySelector('.child');
+const sibling = document.querySelector('.sibling');
+child.addEventListener('mouseenter', () => {
+sibling.style.opacity = 1;
+});
+child.addEventListener('mouseleave', () => {
+sibling.style.opacity = 0;
+});
+  </script>
+</body>
+</html>

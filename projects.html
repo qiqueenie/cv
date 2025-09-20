@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>项目展示 - Queenie Design</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,Cantarell,'Open Sans','Helvetica Neue',sans-serif;line-height:1.6;color:#333;background-color:#f9f7f8}
+a{text-decoration:none;color:inherit}
+img{max-width:100%;height:auto}
+.main-content{margin-top:70px}
+.header{position:fixed;top:0;left:0;width:100%;z-index:100;height:70px;background:rgba(255,255,255,.98);backdrop-filter:blur(10px);box-shadow:0 2px 15px rgba(0,0,0,.05);transition:all .3s ease}
+.header-container{display:flex;justify-content:space-between;align-items:center;height:100%;padding:0 2rem;max-width:1400px;margin:0 auto}
+.logo{cursor:pointer}
+.logo h1{font-size:1.8rem;font-weight:500;color:#8e6c88;margin:0;letter-spacing:1px;transition:all .3s ease}
+.logo h1 span{color:#d4b8c7;font-weight:300}
+
+.nav-desktop{margin:0 2rem}
+.nav-desktop ul{display:flex;list-style:none;margin:0;padding:0;gap:3rem}
+.nav-desktop ul li a{color:#8e6c88;text-decoration:none;font-size:1rem;font-weight:400;transition:all .3s ease;position:relative;padding:.5rem 0;letter-spacing:.5px}
+.nav-desktop ul li a:hover,.nav-desktop ul li a.active{color:#a58faa}
+.nav-desktop ul li a::after{content:'';position:absolute;bottom:-2px;left:0;width:100%;height:2px;background-color:#d4b8c7;transform:scaleX(0);transition:transform .3s ease;transform-origin:right}
+.nav-desktop ul li a:hover::after,.nav-desktop ul li a.active::after{transform:scaleX(1);transform-origin:left}
+.desktop-only{display:block}
+.nav-toggle{display:none;cursor:pointer;font-size:1.5rem;color:#8e6c88}
+
+@media (max-width:768px){.header-container{background-color:white;padding:0 1rem;position:relative;z-index:100}.logo h1{font-size:1.5rem}.nav-desktop{display:none}.nav-toggle{display:block}}
+.mobile-menu{display:none;position:fixed;z-index:99;top:0;left:0;width:100%;height:100vh;background:#3333}
+.mobile-menu nav{padding-top:70px;background-color:#fffe}
+.mobile-menu ul{list-style:none;padding:6px 0}
+.mobile-menu li{padding:6px 0}
+.mobile-menu li:hover{background-color:#fff}
+.mobile-menu a{display:block;padding:10px;color:#333;font-size:1.1rem;text-align:center;border-radius:5px}
+.mobile-menu a:active{background:#f0f0f0}
+
+.footer{background:linear-gradient(135deg,#8e6c88 0%,#6a4d6b 100%);color:white;padding:5rem 0 2rem;position:relative;overflow:hidden}
+.footer::before{content:'';position:absolute;top:0;left:0;width:100%;height:100%;background-image:url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgdmlld0JveD0iMCAwIDYwIDYwIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmZmZmYiIGZpbGwtb3BhY2l0eT0iMC4xIj48cGF0aCBkPSJNMzYgMzRjMC0yLjIgMS44LTQgNC00czQgMS44IDQgNC0xLjggNC00IDQtNC0xLjgtNC00ek0xNiAxNGMwLTIuMiAxLjgtNCA0LTRzNCAxLjggNCA0LTEuOCA0LTQgNC00LTEuOC00LTR6Ii8+PC9nPjwvZz48L3N2Zz4=');opacity:.05;pointer-events:none}
+.footer-container{max-width:1200px;margin:0 auto;padding:0 2rem;position:relative;z-index:1}
+.footer-top{display:grid;grid-template-columns:1fr 2fr;gap:3rem;margin-bottom:3rem}
+.footer-logo h2{font-size:2rem;margin:0 0 1.5rem;font-weight:500;letter-spacing:1px}
+.footer-logo h2 span{color:#d4b8c7;font-weight:300}
+.footer-logo p{font-size:1.1rem;line-height:1.8;opacity:.9;margin:0}
+
+.footer-links{display:grid;grid-template-columns:repeat(2,1fr);gap:2rem}
+.footer-links h3{font-size:1.2rem;margin:0 0 1.5rem;font-weight:500;color:#d4b8c7;letter-spacing:.5px}
+.footer-links ul{list-style:none;padding:0;margin:0}
+.footer-links ul li{margin-bottom:1rem}
+.footer-links ul li a{color:rgba(255,255,255,.85);text-decoration:none;transition:all .3s ease;font-size:1rem;display:inline-block}
+.footer-links ul li a:hover{color:white;transform:translateX(5px)}
+.social-icons{display:flex;gap:1.5rem;margin-top:1rem}
+.social-icons a{display:flex;align-items:center;justify-content:center;width:45px;height:45px;border-radius:50%;background:rgba(255,255,255,.1);color:white;transition:all .3s ease;font-size:1.2rem}
+.social-icons a:hover{background:rgba(255,255,255,.2);transform:translateY(-3px)}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.15);padding-top:2rem;text-align:center}
+.footer-bottom p{margin:0;font-size:.9rem;opacity:.7}
+.social-icons img{padding:14px}
+figure{width:200px;background-color:#fff;border-radius:10px;overflow:hidden;opacity:0;transition:all .3s ease-in-out;margin-top:10px}
+
+@media (max-width:992px){.footer-top{grid-template-columns:1fr;gap:2rem}}
+@media (max-width:768px){.footer{padding:3rem 0 2rem}.footer-container{padding:0 1rem}.footer-links{grid-template-columns:1fr}}
+main{padding-top:70px;min-height:100vh;background:#f9f7f8}
+.pheader{background:linear-gradient(135deg,#8e6c88 0%,#d4b8c7 100%);color:white;padding:4rem 0;text-align:center;position:relative;overflow:hidden}
+.pheader::before{content:'';position:absolute;top:0;left:0;width:100%;height:100%;background-image:url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgdmlld0JveD0iMCAwIDYwIDYwIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmZmZmYiIGZpbGwtb3BhY2l0eT0iMC4xIj48cGF0aCBkPSJNMzYgMzRjMC0yLjIgMS44LTQgNC00czQgMS44IDQgNC0xLjggNC00IDQtNC0xLjgtNC00ek0xNiAxNGMwLTIuMiAxLjgtNCA0LTRzNCAxLjggNCA0LTEuOCA0LTQgNC00LTEuOC00LTR6Ci8+PC9nPjwvZz48L3N2Zz4=');opacity:.1}
+.pheader h1{font-size:3rem;margin-bottom:1rem;font-weight:300;letter-spacing:2px;position:relative;z-index:1}
+.pheader p{font-size:1.3rem;opacity:.9;font-weight:300;letter-spacing:1px;position:relative;z-index:1}
+
+.category-tabs{margin-bottom:2rem;text-align:center}
+.categories-container{display:inline-flex;background:#f9f7f8;padding:4px;border-radius:8px}
+.category-btn{padding:8px 16px;margin:0 4px;border-radius:4px;cursor:pointer;color:#8e6c88;transition:all .3s ease}
+.category-btn:hover{color:#8e6c88;background-color:rgba(212,184,199,.1)}
+.category-btn.active{background-color:#d4b8c7;color:white}
+.featured-works{padding:5rem 0;background:white}
+.section-container{max-width:1200px;margin:0 auto;padding:0 2rem;text-align:center}
+.works-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:2rem;margin-bottom:3rem}
+.work-card{overflow:hidden;border-radius:8px;transition:transform .3s ease;box-shadow:0 5px 15px rgba(0,0,0,.05)}
+.work-card:hover{transform:translateY(-10px);box-shadow:0 15px 30px rgba(0,0,0,.1)}
+.work-image{position:relative;height:250px;overflow:hidden}
+.work-image img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
+.work-card:hover .work-image img{transform:scale(1.05)}
+.work-overlay{position:absolute;bottom:0;left:0;width:100%;padding:1.5rem;background:linear-gradient(to top,rgba(0,0,0,.8) 0%,transparent 100%);color:white;text-align:left}
+.work-overlay h3{font-size:1.5rem;margin-bottom:.5rem;font-weight:400}
+.work-overlay p{font-size:.9rem;opacity:.8}
+
+@media (max-width:992px){.pheader h1{font-size:2.5rem}.pheader p{font-size:1.1rem}.works-grid{grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1.5rem}}
+@media (max-width:768px){.pheader{padding:3rem 0}.pheader h1{font-size:2rem}.pheader p{font-size:1rem}.section-container{padding:0 1rem}.works-grid{grid-template-columns:1fr;gap:1rem}.featured-works{padding:3rem 0}.categories-container{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-bottom:30px;padding:0 10px;background:transparent}.category-btn{padding:6px 12px;font-size:.8rem;border-radius:20px;cursor:pointer;white-space:nowrap;background:#f0f0f0;margin:0}.category-btn.active{background:#8e6c88;color:white}.work-image{width:90vw;height:61.5vw}}
+</style>
+</head>
+<body>
+  <header class="header">
+    <div class="mobile-menu">
+      <nav>
+        <ul>
+              <li><a href="index.html">首页</a></li>
+              <li><a href="about.html">关于我</a></li>
+              <li><a href="projects.html">项目展示</a></li>
+              <li><a href="contact.html">联系方式</a></li>
+            </ul>
+      </nav>
+    </div>
+    <div class="header-container">
+      <div class="header-left">
+        <div class="logo">
+          <h1>Queenie<span>.Design</span></h1>
+        </div>
+      </div>
+
+      <nav class="nav-desktop">
+        <ul>
+          <li><a href="index.html">首页</a></li>
+          <li><a href="about.html">关于我</a></li>
+          <li><a href="projects.html" class="active">项目展示</a></li>
+          <li><a href="contact.html">联系方式</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-right">
+        <div class="nav-toggle">
+          <i class="fas fa-bars"></i>
+        </div>
+      </div>
+    </div>
+  </header>
+
+<main>
+<div class="pheader">
+  <h1>设计作品集</h1>
+  <p>探索我的创意设计解决方案和视觉表达</p>
+</div>
+
+    <!-- 精选作品展示 -->
+    <section class="featured-works">
+      <div class="section-container">
+        <div class="category-tabs">
+          <div class="categories-container">
+            <span class="category-btn active" data-category="a">全部</span>
+            <span class="category-btn" data-category="h">上海爱人如己健康管理</span>
+            <span class="category-btn" data-category="c">舒雅服饰公司</span>
+            <span class="category-btn" data-category="e">空白电子商务公司</span>
+            <span class="category-btn" data-category="i">兼职插画设计等</span>
+          </div>
+        </div>
+        <!-- 作品内容 -->
+        <div class="works-grid" id="works-grid"></div>
+      </div>
+    </section>
+
+</main>
+
+<footer class="footer">
+  <div class="footer-container">
+    <div class="footer-top">
+      <div class="footer-logo">
+        <h2>Queenie<span>.Design</span></h2>
+        <p>用设计讲述品牌故事，创造视觉冲击力</p>
+      </div>
+      
+      <div class="footer-links">
+        <div class="footer-nav">
+          <h3>导航</h3>
+          <ul>
+              <li><a href="index.html">首页</a></li>
+              <li><a href="about.html">关于我</a></li>
+              <li><a href="projects.html">项目展示</a></li>
+              <li><a href="contact.html">联系方式</a></li>
+            </ul>
+        </div>
+        
+        <div class="footer-social">
+          <h3>社交媒体</h3>
+          <div class="social-icons">
+            <a href="javascript:void(0)" class="child" target="_blank" aria-label="wechat"><i class="fab fa-weixin"></i></a>
+            <a href="https://www.zcool.com.cn/u/15820455" target="_blank" aria-label="Instagram"><img src="./img/zk.png" alt="zcool"></i></a>
+            <a href="https://huaban.com/user/q2e6m4je8vx" target="_blank" aria-label="LinkedIn"><img src="./img/hb.png" alt="huaban"></a>
+          </div>
+          <figure class="sibling"><img src="./img/QRcode.jpg" width="100%" alt="QRcode"></figure>
+        </div>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <p>&copy; <script>document.write(new Date().getFullYear())</script> Queenie Qi. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+// 移动菜单切换
+const menu = document.querySelector('.mobile-menu');
+document.querySelector('.nav-toggle').addEventListener('click', function() {
+  menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+});
+menu.addEventListener('click', function() {
+  menu.style.display = 'none'
+});
+
+  // 作品数据
+  document.addEventListener('DOMContentLoaded', function() {
+    const works = [
+      {
+        id: 1,
+        title: '线上商城商品',
+        category: '上海爱人如己健康管理',
+        type: 'h',
+        image: './img/cc1.jpg',
+        url: 'https://www.zcool.com.cn/work/ZNzE5MTI0MTY=.html'
+      },
+      {
+        id: 2,
+        title: '企业科普视频',
+        category: '上海爱人如己健康管理',
+        type: 'h',
+        image: './img/cc2.jpg',
+        url: 'https://www.zcool.com.cn/work/ZNzE5MTM4Njg=.html'
+      },
+      {
+        id: 3,
+        title: '企业产品视频',
+        category: '上海爱人如己健康管理',
+        type: 'h',
+        image: './img/cc3.jpg',
+        url: 'https://www.zcool.com.cn/work/ZNzE5MTM4MDQ=.html'
+      },
+      {
+        id: 4,
+        title: '企业宣传视频',
+        category: '上海爱人如己健康管理',
+        type: 'h',
+        image: './img/cc4.jpg',
+        url: 'https://www.zcool.com.cn/work/ZNzE5MTM2NTY=.html'
+      },
+      {
+        id: 5,
+        title: '企业LOGO画册',
+        category: '上海爱人如己健康管理',
+        type: 'h',
+        image: './img/cc5.jpg',
+        url: 'https://www.zcool.com.cn/work/ZNzE5MTMzNzI=.html'
+      },
+      {
+        id: 6,
+        title: '企业宣传画册',
+        category: '上海爱人如己健康管理',
+        type: 'h',
+        image: './img/cc6.jpg',
+        url: 'https://www.zcool.com.cn/work/ZNzE5MTI5ODA=.html'
+      },
+      {
+        id: 7,
+        title: '企业宣传画册',
+        category: '上海爱人如己健康管理',
+        type: 'h',
+        image: './img/c7.jpg',
+        url: 'https://www.zcool.com.cn/work/ZNzE5MTI4ODQ=.html'
+      },
+      {
+        id: 8,
+        title: '线上装修模块内容',
+        category: '上海爱人如己健康管理',
+        type: 'h',
+        image: './img/cc8.jpg',
+        url: 'https://www.zcool.com.cn/work/ZNzE5MTI0ODg=.html'
+      },
+      {
+        id: 9,
+        title: '线上首页',
+        category: '舒雅服饰公司',
+        type: 'c',
+        image: './img/c9.jpg',
+        url: 'https://www.zcool.com.cn/work/ZNjg0ODY3ODA=.html'
+      },
+      {
+        id: 10,
+        title: '线上推广',
+        category: '舒雅服饰公司',
+        type: 'c',
+        image: './img/c10.jpg',
+        url: 'https://www.zcool.com.cn/work/ZNjg0ODY5MDQ=.html'
+      },
+      {
+        id: 11,
+        title: '商城重点品类',
+        category: '舒雅服饰公司',
+        type: 'c',
+        image: './img/c19.jpg',
+        url: 'https://www.zcool.com.cn/work/ZNzE5MTI0MTY=.html'
+      },
+      {
+        id: 12,
+        title: '舒雅|艺录服饰视频',
+        category: '舒雅服饰公司',
+        type: 'c',
+        image: './img/c11.jpg',
+        url: 'https://www.zcool.com.cn/work/ZNjg0ODcxNjQ=.html'
+      },
+      {
+        id: 13,
+        title: '展会活动',
+        category: '空白电子商务公司',
+        type: 'e',
+        image: './img/c12.jpg',
+        url: 'https://www.zcool.com.cn/work/ZNjg2NTc1OTI=.html'
+      },
+      {
+        id: 14,
+        title: '展会活动',
+        category: '空白电子商务公司',
+        type: 'e',
+        image: './img/c13.jpg',
+        url: 'https://www.zcool.com.cn/work/ZNjg2NTc1NDg=.html'
+      },
+      {
+        id: 15,
+        title: '线下店铺活动',
+        category: '空白电子商务公司',
+        type: 'e',
+        image: './img/c14.jpg',
+        url: 'https://www.zcool.com.cn/work/ZNTQxNTgxNjA=.html'
+      },
+      {
+        id: 16,
+        title: '电商美妆',
+        category: '空白电子商务公司',
+        type: 'e',
+        image: './img/c15.jpg',
+        url: 'https://www.zcool.com.cn/work/ZNTM5MTU5MDA=.html'
+      },
+      {
+        id: 17,
+        title: '电商服装',
+        category: '空白电子商务公司',
+        type: 'e',
+        image: './img/c16.jpg',
+        url: 'https://www.zcool.com.cn/work/ZNTM5MTQ1MDQ=.html'
+      },
+      {
+        id: 18,
+        title: '国潮美妆电器',
+        category: '电商设计',
+        type: 'i',
+        image: './img/c17.jpg',
+        url: 'https://www.zcool.com.cn/work/ZNTM5MTU1NDg=.html'
+      },
+      {
+        id: 19,
+        title: '插画',
+        category: '新锐潮流插画',
+        type: 'i',
+        image: './img/c18.jpg',
+        url: 'https://www.zcool.com.cn/work/ZNDk3NjQ0MDA=.html'
+      }
+    ];
+
+    // 初始化渲染
+    renderWorks('a');
+
+    // 分类按钮点击事件
+    document.querySelectorAll('.category-btn').forEach(btn => {
+      btn.addEventListener('click', function() {
+        // 移除所有active类
+        document.querySelectorAll('.category-btn').forEach(b => {
+          b.classList.remove('active');
+        });
+        
+        // 给当前点击的按钮添加active类
+        this.classList.add('active');
+        
+        // 获取分类并渲染作品
+        const category = this.dataset.category;
+        renderWorks(category);
+      });
+    });
+
+    // 渲染作品函数
+    function renderWorks(category) {
+      // 修改为正确的 ID
+      const container = document.getElementById('works-grid');
+      let filteredWorks = works
+      
+      // 筛选作品
+      if (category !== 'a') {
+        filteredWorks = works.filter(work => work.type === category);
+      }
+      
+      // 生成HTML
+      let html = '';
+      filteredWorks.forEach(work => {
+        html += `
+          <div class="work-card">
+            <a href="${work.url}" target="_blank">
+              <div class="work-image">
+                <img src="${work.image}" alt="${work.title}">
+                <div class="work-overlay">
+                  <h3>${work.title}</h3>
+                  <p>${work.category}</p>
+                </div>
+              </div>
+            </a>
+          </div>
+        `;
+      });
+      
+      // 更新DOM
+      container.innerHTML = html;
+    }
+  });
+
+//尾部显示二维码
+const child = document.querySelector('.child');
+const sibling = document.querySelector('.sibling');
+child.addEventListener('mouseenter', () => {
+sibling.style.opacity = 1;
+});
+child.addEventListener('mouseleave', () => {
+sibling.style.opacity = 0;
+});
+</script>
+</body>
+</html>
