@@ -132,7 +132,7 @@ figure{width:200px;background-color:#fff;border-radius:10px;overflow:hidden;opac
 }
 
 .video-modal{display:none;position:fixed;z-index:9999;left:0;top:0;width:100%;height:100%;background-color:rgba(0,0,0,.8);backdrop-filter:blur(5px)}
-.modal-content{position:relative;background-color:#fff;margin:5% auto;padding:0;border-radius:12px;width:90%;max-width:800px;box-shadow:0 20px 40px rgba(0,0,0,.3);overflow:hidden}
+.modal-content{position:relative;background-color:#fff;margin:5% auto;padding:0;border-radius:12px;width:90%;max-width:1000px;box-shadow:0 20px 40px rgba(0,0,0,.3);overflow:hidden}
 .close-modal{position:absolute;top:15px;right:20px;color:#fff;font-size:28px;font-weight:bold;cursor:pointer;z-index:10000;background:rgba(0,0,0,.5);width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;transition:all .3s ease}
 .close-modal:hover{background:rgba(0,0,0,.8);transform:scale(1.1)}
 .video-container{position:relative;width:100%;background:#000}
@@ -228,10 +228,8 @@ figure{width:200px;background-color:#fff;border-radius:10px;overflow:hidden;opac
       <div class="modal-content">
         <span class="close-modal">&times;</span>
         <div class="video-container">
-           <video id="modalVideo" class="video-react-video" preload="auto" tabindex="-1" controls width="100%" height="auto">
-             <source src="" type="video/mp4" id="sourceId">
-             您的浏览器不支持视频播放。
-           </video>
+           <iframe id="modalVideo" width="100%" height="640" frameborder="0" allowfullscreen>
+           </iframe>
          </div>
         <div class="video-info">
           <h3 id="videoTitle"></h3>
@@ -329,102 +327,165 @@ figure{width:200px;background-color:#fff;border-radius:10px;overflow:hidden;opac
     const videoWorks = [
       {
         id: 1,
-        title: '企业科普视频',
+        title: '2月14日',
         category: '行业宣传',
         type: 'publicity',
         image: './img/cc2.jpg',
-        url:'https://www.zcool.com.cn/work/ZNzE5MTM4Njg=.html',
-        videoUrl: 'https://zcool-video.zcool.cn/alivod/6825c894aaa8ffkisefble8867_H264_1_58dc5a4e7ac0.mp4?k=0e189debbc49d595224ed0c44919aa86&t=68b1217f'
+        url:'',
+        videoUrl: 'https://h0qqmr91qrc.feishu.cn/file/UP6jbKWNEoeCRvxmEqwcctjQnze?from=from_copylink'
       },
       {
         id: 2,
-        title: '企业科普视频',
+        title: '2月28日',
         category: '行业宣传',
         type: 'publicity',
         image: './img/cc2.jpg',
-        url:'https://www.zcool.com.cn/work/ZNzE5MTM4Njg=.html',
-        videoUrl: 'https://zcool-video.zcool.cn/alivod/6825cab00e6b4veiwjs8hp7839_H264_1_64cb0c8171c7ed.mp4?k=86e1434503b3d4d9b1f22db5a9fed7f2&t=68b1217f'
+        url:'',
+        videoUrl: 'https://h0qqmr91qrc.feishu.cn/file/KrehblbofoS3nXx7XFncEmXonMg?from=from_copylink'
       },
       {
         id: 3,
-        title: '企业科普视频',
+        title: '3月7日',
         category: '行业宣传',
         type: 'publicity',
         image: './img/cc2.jpg',
-        url:'https://www.zcool.com.cn/work/ZNzE5MTM4Njg=.html',
-        videoUrl: 'https://zcool-video.zcool.cn/alivod/6825cdf38e8a3k6b8b9oqw5518_H264_1_5a1dcfd1876c.mp4?k=b564684a4bfa23672d2a8c620defa01b&t=68b1217f'
+        url:'',
+        videoUrl: 'https://h0qqmr91qrc.feishu.cn/file/H3u0bEd8SoSwZvxz3byct7LDngg?from=from_copylink'
       },
       {
         id: 4,
-        title: '企业产品视频',
+        title: '3月27日',
         category: '产品宣传',
         type: 'product',
         image: './img/cc3.jpg',
-        url:'https://www.zcool.com.cn/work/ZNzE5MTM4MDQ=.html',
-        videoUrl: 'https://zcool-video.zcool.cn/alivod/6825c6b47ae404gpj2g2r46467_H264_1_64ca1cf60a2d21.mp4?k=c89b9bfc827a05facbba7d0e786bdba4&t=68b121c7'
+        url:'',
+        videoUrl: 'https://h0qqmr91qrc.feishu.cn/file/BG79bBEhvoCiTCxMfGDcKtIvnBd?from=from_copylink'
       },
       {
         id: 5,
-        title: '企业产品视频',
+        title: '9月19日',
         category: '产品宣传',
         type: 'product',
         image: './img/cc3.jpg',
-        url:'https://www.zcool.com.cn/work/ZNzE5MTM4MDQ=.html',
-        videoUrl: 'https://zcool-video.zcool.cn/alivod/6825c6c3f1992jy89pmtvd7402_H264_1_64ca20c06ababf.mp4?k=118c461178d501712cf9cb62f2b7d33a&t=68b121c7'
+        url:'',
+        videoUrl: 'https://h0qqmr91qrc.feishu.cn/file/Zev3bkq4BocfigxNnEIceDqwnst?from=from_copylink'
       },
       {
         id: 6,
-        title: '企业产品视频',
+        title: '高血压',
         category: '产品宣传',
         type: 'product',
         image: './img/cc3.jpg',
-        url:'https://www.zcool.com.cn/work/ZNzE5MTM4MDQ=.html',
-        videoUrl: 'https://zcool-video.zcool.cn/alivod/6825c6cfe6cd5rzzcu9atw8711_H264_1_5877d83117b3.mp4?k=d0a63bdaf44591644637ec6a67083169&t=68b121c7'
+        url:'',
+        videoUrl: 'https://h0qqmr91qrc.feishu.cn/file/U0szbqLcroLbvxxmELZcG7IOnLg?from=from_copylink'
       },
       {
         id: 7,
-        title: '企业宣传视频',
+        title: '公司介绍',
         category: '企业宣传',
         type: 'publicity',
         image: './img/cc4.jpg',
-        url:'https://www.zcool.com.cn/work/ZNzE5MTM2NTY=.html',
-        videoUrl: 'https://zcool-video.zcool.cn/alivod/6825c59f4976edtnniaogi22_H264_1_58460840466c.mp4?k=72b80f8ab20d3571f5a1ddd26bcf60a5&t=68b121f5'
+        url:'',
+        videoUrl: 'https://h0qqmr91qrc.feishu.cn/file/HMQQbFDXyo9izgxhdhucCMGknoh?from=from_copylink'
       },
       {
         id: 8,
-        title: '企业宣传视频',
+        title: '宫颈癌',
         category: '企业宣传',
         type: 'publicity',
         image: './img/cc4.jpg',
-        url:'https://www.zcool.com.cn/work/ZNzE5MTM2NTY=.html',
-        videoUrl: 'https://zcool-video.zcool.cn/alivod/6825c5c2519dccdzb37rbn6233_H264_1_584818db4216.mp4?k=41a6ad4b48e956f73cde2affb5346d9f&t=68b121f5'
+        url:'',
+        videoUrl: 'https://h0qqmr91qrc.feishu.cn/file/QE0rbhNSLoHd3bxaomCccagmn2e?from=from_copylink'
       },
       {
         id: 9,
-        title: '服饰视频（拍摄文案剪辑）',
+        title: '活细胞',
         category: '产品宣传',
         type: 'product',
         image: './img/c11.jpg',
-        url:'https://www.zcool.com.cn/work/ZNjg0ODcxNjQ=.html',
-        videoUrl: 'https://zcool-video.zcool.cn/alivod/609ef4a30bad71efa28e5107e0c90102.mp4?k=f31a8e73ce9deb8e64d10d80fd16d97f&t=68b12275'
+        url:'',
+        videoUrl: 'https://h0qqmr91qrc.feishu.cn/file/D3Uyb5vUuofmLhx2vkdchL16nug?from=from_copylink'
       },
       {
         id: 10,
-        title: '服饰视频（拍摄文案剪辑）',
+        title: '进博会瑞士',
         category: '产品宣传',
         type: 'product',
         image: './img/c11.jpg',
-        url:'https://www.zcool.com.cn/work/ZNjg0ODcxNjQ=.html',
-        videoUrl: 'https://zcool-video.zcool.cn/alivod/a004b5c40bad71ef92c16732b78e0102.mp4?k=bf8baf7ac658ee968073cf5fa611a512&t=68b12275'
+        url:'',
+        videoUrl: 'https://h0qqmr91qrc.feishu.cn/file/HmdkbBUklo6IIixXeXRcORbTnDb?from=from_copylink'
       },
       {
         id: 11,
-        title: '服饰视频（拍摄文案剪辑）',
+        title: '器官衰老',
         category: '产品宣传',
         type: 'product',
         image: './img/c11.jpg',
-        url:'https://www.zcool.com.cn/work/ZNjg0ODcxNjQ=.html',
-        videoUrl: 'https://zcool-video.zcool.cn/alivod/109cd9f20bad71efa3db6732b68f0102.mp4?k=f690d34031ca8bb1371e9f6bd92ec0ef&t=68b12275'
+        url:'',
+        videoUrl: 'https://h0qqmr91qrc.feishu.cn/file/J1dmbqKBuoO7uKxIrJdcd3AwnNf?from=from_copylink'
+      },
+      {
+        id: 12,
+        title: '三高共管',
+        category: '产品宣传',
+        type: 'product',
+        image: './img/c11.jpg',
+        url:'',
+        videoUrl: 'https://h0qqmr91qrc.feishu.cn/file/PB6SbIkrGovfaQxkjkIcpD6RnTf?from=from_copylink'
+      },
+      {
+        id: 13,
+        title: '水蛭素',
+        category: '产品宣传',
+        type: 'product',
+        image: './img/c11.jpg',
+        url:'',
+        videoUrl: 'https://h0qqmr91qrc.feishu.cn/file/HoREbaVm7otws4xiPeYc1fCjnoh?from=from_copylink'
+      },
+      {
+        id: 14,
+        title: '雪莲果长视频',
+        category: '产品宣传',
+        type: 'product',
+        image: './img/c11.jpg',
+        url:'',
+        videoUrl: 'https://h0qqmr91qrc.feishu.cn/file/Sk8ebbvMLoi91jx1reqcEJqIn2b?from=from_copylink'
+      },
+      {
+        id: 15,
+        title: '亚健康',
+        category: '产品宣传',
+        type: 'product',
+        image: './img/c11.jpg',
+        url:'',
+        videoUrl: 'https://h0qqmr91qrc.feishu.cn/file/Y6cYbHMR7o2U6nx1LuFcgVwnnLg?from=from_copylink'
+      },
+      {
+        id: 16,
+        title: '亚精氨',
+        category: '产品宣传',
+        type: 'product',
+        image: './img/c11.jpg',
+        url:'',
+        videoUrl: 'https://h0qqmr91qrc.feishu.cn/file/AAkFb9hQjoGxnpxA2MSck4mcn0g?from=from_copylink'
+      },
+      {
+        id: 17,
+        title: '引发胃癌的元凶',
+        category: '产品宣传',
+        type: 'product',
+        image: './img/c11.jpg',
+        url:'',
+        videoUrl: 'https://h0qqmr91qrc.feishu.cn/file/KKuRbH5Jzo9maGx8OP2cXYSBnRX?from=from_copylink'
+      },
+      {
+        id: 18,
+        title: '产品新视频',
+        category: '产品宣传',
+        type: 'product',
+        image: './img/c11.jpg',
+        url:'',
+        videoUrl: 'https://h0qqmr91qrc.feishu.cn/file/MI1LbuH2aofaBNxME7GcwXJjn7e?from=from_copylink'
       }
       
     ];
@@ -505,64 +566,32 @@ figure{width:200px;background-color:#fff;border-radius:10px;overflow:hidden;opac
   // 视频模态框功能
   function openVideoModal(videoUrl, title, category) {
     const modal = document.getElementById('videoModal');
-    const video = document.getElementById('modalVideo');
-    const source = document.getElementById('sourceId');
+    const iframe = document.getElementById('modalVideo');
     const videoTitle = document.getElementById('videoTitle');
     const videoCategory = document.getElementById('videoCategory');
     
-    // 动态生成新的时间戳
-    function generateNewTimestamp() {
-      const currentTime = Math.floor(Date.now() / 1000); // 当前Unix时间戳（秒）
-      return currentTime.toString(16); // 转换为16进制
-    }
-    
-    // 更新视频URL的时间戳参数
-    function updateVideoUrl(originalUrl) {
-      try {
-        const url = new URL(originalUrl);
-        const newTimestamp = generateNewTimestamp();
-        url.searchParams.set('t', newTimestamp);
-        console.log('原始时间戳:', url.searchParams.get('t'));
-        console.log('新生成时间戳:', newTimestamp);
-        return url.toString();
-      } catch (error) {
-        console.log('URL解析失败，使用原始链接:', error);
-        return originalUrl;
-      }
-    }
-    
-    // 使用更新后的视频URL
-    const updatedVideoUrl = updateVideoUrl(videoUrl);
+    // 设置iframe的src为视频链接
+    iframe.src = videoUrl;
     
     // 设置视频信息
-    source.src = updatedVideoUrl;
-    video.load(); // 重新加载视频
     videoTitle.textContent = title;
     videoCategory.textContent = category;
     
     // 显示模态框
     modal.style.display = 'block';
     document.body.style.overflow = 'hidden'; // 防止背景滚动
-    
-    // 视频加载完成后自动播放
-    video.addEventListener('loadeddata', function() {
-      video.play().catch(function(error) {
-        console.log('自动播放失败，需要用户手动点击播放:', error);
-      });
-    }, { once: true });
   }
   
   function closeVideoModal() {
     const modal = document.getElementById('videoModal');
-    const video = document.getElementById('modalVideo');
+    const iframe = document.getElementById('modalVideo');
     
     // 隐藏模态框
     modal.style.display = 'none';
     document.body.style.overflow = 'auto'; // 恢复滚动
     
-    // 停止视频播放
-    video.pause();
-    video.currentTime = 0;
+    // 清空iframe的src以停止视频播放
+    iframe.src = '';
   }
   
   // 模态框事件监听
